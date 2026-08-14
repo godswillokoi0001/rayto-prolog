@@ -4,6 +4,7 @@ import { CtaBanner } from '@/components/CtaBanner';
 import { Eyebrow } from '@/components/Eyebrow';
 import { images, type Page } from '@/shared/constants';
 import { useReveal } from '@/shared/useReveal';
+import { useSEO } from '@/shared/useSEO';
 
 const industries = [
   'Manufacturing',
@@ -19,6 +20,23 @@ const industries = [
 export function Industries({ onNavigate }: { onNavigate: (page: Page) => void }) {
   const intro = useReveal<HTMLDivElement>();
   const grid = useReveal<HTMLDivElement>();
+
+  useSEO({
+    title: 'Industries We Serve | Logistics Solutions for All Sectors',
+    description: 'Rayto Prolog provides tailored logistics solutions for manufacturing, retail, e-commerce, agriculture, construction, healthcare, renewable energy, and corporate operations.',
+    keywords: 'logistics manufacturing, e-commerce logistics, agriculture logistics, retail distribution, construction logistics, healthcare logistics',
+    ogTitle: 'Industries We Serve | Tailored Logistics Solutions',
+    ogDescription: 'Discover how Rayto Prolog serves various industries with customized logistics solutions.',
+    ogUrl: 'https://raytoprolog.com/#/industries',
+    canonical: 'https://raytoprolog.com/#/industries',
+    structuredData: {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      'name': 'Industries We Serve',
+      'description': 'Tailored logistics solutions for multiple industries',
+      'url': 'https://raytoprolog.com/#/industries'
+    }
+  });
 
   return (
     <>

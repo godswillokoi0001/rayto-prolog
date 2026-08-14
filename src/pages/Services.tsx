@@ -3,6 +3,7 @@ import { CtaBanner } from '@/components/CtaBanner';
 import { Eyebrow } from '@/components/Eyebrow';
 import { type Page } from '@/shared/constants';
 import { useReveal } from '@/shared/useReveal';
+import { useSEO } from '@/shared/useSEO';
 
 const services: [string, string][] = [
   ['Transportation & Freight', 'Dependable road transportation that gets goods where they need to go.'],
@@ -15,6 +16,23 @@ const services: [string, string][] = [
 
 export function Services({ onNavigate }: { onNavigate: (page: Page) => void }) {
   const grid = useReveal<HTMLDivElement>();
+
+  useSEO({
+    title: 'Logistics Services | Transportation, Warehousing & Supply Chain',
+    description: 'Complete logistics solutions - transportation, fleet management, warehousing, supply chain, e-commerce logistics, and last-mile delivery services in Nigeria.',
+    keywords: 'logistics services, transportation, fleet management, warehousing, supply chain solutions, last-mile delivery, e-commerce logistics',
+    ogTitle: 'Our Services | Complete Logistics Solutions',
+    ogDescription: 'Explore our comprehensive logistics services - from transportation to supply chain management.',
+    ogUrl: 'https://raytoprolog.com/#/services',
+    canonical: 'https://raytoprolog.com/#/services',
+    structuredData: {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      'name': 'Our Services',
+      'description': 'Complete logistics and supply chain solutions',
+      'url': 'https://raytoprolog.com/#/services'
+    }
+  });
 
   return (
     <>

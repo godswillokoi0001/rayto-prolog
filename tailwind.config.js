@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Manrope', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['General Sans', 'Manrope', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       transitionDelay: {
         ...Array.from({ length: 12 }, (_, i) => ({ [`d${i + 1}`]: `${(i + 1) * 80}ms` })),

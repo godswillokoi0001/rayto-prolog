@@ -4,6 +4,7 @@ import { CtaBanner } from '@/components/CtaBanner';
 import { Eyebrow } from '@/components/Eyebrow';
 import { images, type Page } from '@/shared/constants';
 import { useReveal } from '@/shared/useReveal';
+import { useSEO } from '@/shared/useSEO';
 
 const missionVision: [string, string][] = [
   ['Our Mission', 'Our mission is to provide reliable, efficient, and customer-focused logistics solutions that empower businesses to operate more effectively.'],
@@ -16,6 +17,24 @@ export function About({ onNavigate }: { onNavigate: (page: Page) => void }) {
   const storyImg = useReveal<HTMLImageElement>();
   const introImg = useReveal<HTMLImageElement>();
   const mv = useReveal<HTMLDivElement>();
+
+  useSEO({
+    title: 'About Rayto Prolog | Logistics Partner in Nigeria',
+    description: 'Learn about Rayto Prolog - a trusted logistics and supply chain partner dedicated to helping businesses across Nigeria operate with confidence and efficiency.',
+    keywords: 'about Rayto Prolog, logistics company Nigeria, supply chain partner, transportation partner',
+    ogTitle: 'About Rayto Prolog | Your Logistics Partner for Growth',
+    ogDescription: 'Discover how Rayto Prolog delivers reliable logistics and supply chain solutions for sustainable business growth.',
+    ogImage: 'https://raytoprolog.com/og-image.jpg',
+    ogUrl: 'https://raytoprolog.com/#/about',
+    canonical: 'https://raytoprolog.com/#/about',
+    structuredData: {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      'name': 'About Rayto Prolog',
+      'description': 'Learn about Rayto Prolog - a trusted logistics and supply chain partner',
+      'url': 'https://raytoprolog.com/#/about'
+    }
+  });
 
   return (
     <>
@@ -41,7 +60,7 @@ export function About({ onNavigate }: { onNavigate: (page: Page) => void }) {
           <img
             ref={introImg.ref}
             src={images.warehouse}
-            alt="Warehouse team"
+            alt="Professional warehouse team managing Rayto Prolog logistics operations and supply chain"
             className="h-[420px] w-full rounded-xl object-cover shadow-lg transition-all duration-700"
             style={{ transform: introImg.visible ? 'translateX(0)' : 'translateX(32px)', opacity: introImg.visible ? 1 : 0 }}
           />

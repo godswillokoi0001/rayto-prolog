@@ -4,11 +4,29 @@ import { CtaBanner } from '@/components/CtaBanner';
 import { Eyebrow } from '@/components/Eyebrow';
 import { images } from '@/shared/constants';
 import { useReveal } from '@/shared/useReveal';
+import { useSEO } from '@/shared/useSEO';
 
 export function Contact() {
   const [sent, setSent] = useState(false);
   const info = useReveal<HTMLDivElement>();
   const form = useReveal<HTMLFormElement>();
+
+  useSEO({
+    title: 'Contact Rayto Prolog | Get a Logistics Quote Today',
+    description: 'Contact Rayto Prolog for reliable logistics solutions. Request a quote or speak with our team about your transportation, warehousing, and supply chain needs.',
+    keywords: 'contact logistics company, request logistics quote, transportation quote, warehousing services',
+    ogTitle: 'Contact Us | Request a Logistics Quote',
+    ogDescription: 'Get in touch with Rayto Prolog for professional logistics solutions.',
+    ogUrl: 'https://raytoprolog.com/#/contact',
+    canonical: 'https://raytoprolog.com/#/contact',
+    structuredData: {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      'name': 'Contact Rayto Prolog',
+      'description': 'Contact us for logistics and supply chain solutions',
+      'url': 'https://raytoprolog.com/#/contact'
+    }
+  });
 
   return (
     <>

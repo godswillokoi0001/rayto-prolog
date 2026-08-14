@@ -8,28 +8,28 @@ export function CtaBanner({ onNavigate }: { onNavigate: (page: Page) => void }) 
 
   return (
     <section
-      className="relative mx-2 overflow-hidden rounded-[24px] bg-[#102b5c] px-6 py-16 text-center text-white sm:mx-6 lg:mx-auto lg:max-w-[1320px]"
+      className="relative my-16 mx-auto overflow-hidden rounded-3xl bg-[#102b5c] px-8 py-20 text-center text-white lg:max-w-6xl"
       style={{
-        backgroundImage: `linear-gradient(rgba(5,20,40,.68),rgba(5,20,40,.72)),url(${images.warehouse})`,
+        backgroundImage: `linear-gradient(rgba(5,20,40,.75),rgba(5,20,40,.75)),url(${images.warehouse})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
     >
       <div
         ref={ref}
-        className={`relative mx-auto max-w-2xl ${visible ? 'is-visible' : ''} reveal`}
+        className={`relative mx-auto max-w-3xl ${visible ? 'is-visible' : ''} reveal`}
       >
-        <Eyebrow>Ready to move?</Eyebrow>
-        <h2 className="mb-5 text-3xl font-extrabold leading-tight tracking-[-0.04em] sm:text-5xl">
+        <Eyebrow>Ready for a Logistics Partner You Can Trust?</Eyebrow>
+        <h2 className="text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">
           Ready for a Logistics
           <br />
           Partner You Can Trust?
         </h2>
-        <p className="mx-auto mb-8 max-w-xl text-sm leading-7 text-white/80">
+        <p className="mx-auto mb-10 mt-6 max-w-2xl text-base leading-8 text-white/90">
           Every successful partnership starts with the right logistics partner. Whether you need transportation,
           warehousing, or supply chain support, Rayto Prolog is ready to help your business operate more efficiently.
         </p>
-        <div className="flex flex-wrap justify-center gap-3">
+        <div className="flex flex-wrap justify-center gap-4">
           <Button onClick={() => onNavigate('contact')}>Request Quote</Button>
           <Button secondary onClick={() => onNavigate('contact')}>
             Contact Our Team

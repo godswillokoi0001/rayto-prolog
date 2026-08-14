@@ -7,19 +7,19 @@ export function Header({ page, onNavigate }: { page: Page; onNavigate: (page: Pa
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-100 bg-white/95 backdrop-blur">
-      <div className="mx-auto flex h-[72px] max-w-[1240px] items-center justify-between px-6 lg:px-10">
+    <header className="sticky top-0 z-50 border-b border-slate-100 bg-white">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-10">
         <button onClick={() => onNavigate('home')} aria-label="Rayto Prolog home">
           <Logo />
         </button>
 
-        <nav className="hidden items-center gap-10 md:flex">
+        <nav className="hidden items-center gap-8 md:flex">
           {navItems.map((item) => (
             <button
               key={item.page}
               onClick={() => onNavigate(item.page)}
-              className={`text-[13px] font-medium transition-colors hover:text-[#e74608] ${
-                page === item.page ? 'text-[#e74608]' : 'text-slate-800'
+              className={`text-sm font-medium transition-colors ${
+                page === item.page ? 'text-[#e74608]' : 'text-slate-900 hover:text-[#e74608]'
               }`}
             >
               {item.label}
@@ -29,7 +29,7 @@ export function Header({ page, onNavigate }: { page: Page; onNavigate: (page: Pa
 
         <button
           onClick={() => onNavigate('contact')}
-          className="hidden rounded-md bg-[#e74608] px-5 py-3 text-[12px] font-bold text-white shadow-sm transition hover:bg-[#c93804] md:block"
+          className="hidden rounded-lg bg-[#e74608] px-6 py-2.5 text-sm font-bold text-white transition hover:bg-[#d63f04] md:block"
         >
           Request Quote
         </button>
