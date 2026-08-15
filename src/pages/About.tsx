@@ -59,7 +59,7 @@ export function About({ onNavigate }: { onNavigate: (page: Page) => void }) {
           </div>
           <img
             ref={introImg.ref}
-            src="/images/Warehouse_staff_moving_goods_for…_202607191205 (1) 1.png"
+            src="/images/Three_trucks_parked_warehouse_su…_202607101545 1 (2).png"
             alt="Professional warehouse team managing Rayto Prolog logistics operations and supply chain"
             className="h-[420px] w-full rounded-xl object-cover shadow-lg transition-all duration-700"
             style={{ transform: introImg.visible ? 'translateX(0)' : 'translateX(32px)', opacity: introImg.visible ? 1 : 0 }}
@@ -71,7 +71,7 @@ export function About({ onNavigate }: { onNavigate: (page: Page) => void }) {
         <div className="mx-auto grid max-w-[1160px] gap-12 lg:grid-cols-[1fr_1fr] lg:items-center">
           <img
             ref={storyImg.ref}
-            src="/images/African_professional_overlooking…_2K_202607191200 1.png"
+            src="/images/Three_trucks_parked_warehouse_su…_202607101545 1 (3).png"
             alt="Aerial highway"
             className="h-[410px] w-full rounded-xl object-cover transition-all duration-700"
             style={{ transform: storyImg.visible ? 'translateX(0)' : 'translateX(-32px)', opacity: storyImg.visible ? 1 : 0 }}

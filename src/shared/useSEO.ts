@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 export interface SEOMetadata {
   title: string;
@@ -20,6 +20,9 @@ export interface SEOMetadata {
  * This is crucial for single-page applications
  */
 export function useSEO(metadata: SEOMetadata) {
+  const metadataKey = JSON.stringify(metadata);
+  const previousMetadataKey = useRef<string | null>(null);
+
   useEffect(() => {
     // Update page title
     document.title = metadata.title;
@@ -57,9 +60,12 @@ export function useSEO(metadata: SEOMetadata) {
       updateStructuredData(metadata.structuredData);
     }
 
-    // Scroll to top
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [metadata]);
+    if (previousMetadataKey.current !== metadataKey) {
+      previousMetadataKey.current = metadataKey;
+      // Scroll to top only when the actual page metadata changes.
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [metadataKey]);
 }
 
 /**

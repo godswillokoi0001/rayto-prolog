@@ -36,8 +36,9 @@ export function Services({ onNavigate }: { onNavigate: (page: Page) => void }) {
 
   return (
     <>
-      <section className="bg-[#09285d] px-6 py-24 text-white">
-        <div className="mx-auto max-w-[1160px]">
+      <section className="relative px-6 py-24 text-white bg-cover bg-center" style={{backgroundImage: 'url("images/Forklift_carrying_goods_warehouse_2K_202607101553 1.png")'}}>
+       
+        <div className="relative mx-auto max-w-[1160px]">
           <p className="mb-4 animate-fade-in-up text-[10px] font-extrabold uppercase tracking-[0.12em] text-[#e74608]">
             What we do
           </p>
