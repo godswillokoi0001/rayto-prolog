@@ -1,6 +1,6 @@
 import { Button } from './Button';
 import { Eyebrow } from './Eyebrow';
-import { images, type Page } from '@/shared/constants';
+import type { Page } from '@/shared/constants';
 import { useReveal } from '@/shared/useReveal';
 
 export function CtaBanner({ onNavigate }: { onNavigate: (page: Page) => void }) {
@@ -10,7 +10,7 @@ export function CtaBanner({ onNavigate }: { onNavigate: (page: Page) => void }) 
     <section
       className="relative my-16 mx-auto overflow-hidden rounded-3xl bg-[#102b5c] px-8 py-20 text-center text-white lg:max-w-6xl"
       style={{
-        backgroundImage: `linear-gradient(rgba(5,20,40,.75),rgba(5,20,40,.75)),url(${images.warehouse})`,
+        backgroundImage: 'url(/images/Warehouse_staff_moving_goods_for…_202607191205.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}

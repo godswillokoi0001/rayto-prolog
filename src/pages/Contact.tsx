@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { CtaBanner } from '@/components/CtaBanner';
 import { Eyebrow } from '@/components/Eyebrow';
-import { images } from '@/shared/constants';
 import { useReveal } from '@/shared/useReveal';
 import { useSEO } from '@/shared/useSEO';
 
@@ -33,7 +32,7 @@ export function Contact() {
       <section className="relative flex min-h-[570px] items-center justify-center overflow-hidden px-6 py-20 text-center text-white">
         <div
           className="absolute inset-0 bg-cover bg-center animate-slow-zoom"
-          style={{ backgroundImage: `linear-gradient(rgba(3,17,34,.66),rgba(3,17,34,.76)),url(${images.warehouse})` }}
+          style={{ backgroundImage: 'url(/images/Warehouse_staff_moving_goods_for…_202607191205 (1) 1.png)' }}
         />
         <div className="relative mx-auto max-w-3xl">
           <p className="mb-4 animate-fade-in-up text-[10px] font-extrabold uppercase tracking-[0.12em] text-[#e74608]">

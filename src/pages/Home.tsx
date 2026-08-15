@@ -2,7 +2,7 @@ import { Truck } from 'lucide-react';
 import { Button } from '@/components/Button';
 import { CtaBanner } from '@/components/CtaBanner';
 import { Eyebrow } from '@/components/Eyebrow';
-import { images, type Page } from '@/shared/constants';
+import type { Page } from '@/shared/constants';
 import { useReveal } from '@/shared/useReveal';
 import { useSEO } from '@/shared/useSEO';
 
@@ -128,12 +128,12 @@ export function Home({ onNavigate }: { onNavigate: (page: Page) => void }) {
 
           <div className="relative h-96 w-full sm:h-[440px] lg:h-96">
             <img
-              src={images.truck}
+              src="/images/Three_trucks_parked_warehouse_su…_202607101545 1.png"
               alt="Rayto Prolog red logistics delivery truck on highway - professional transportation and freight services"
               className="absolute right-0 top-0 h-full w-4/5 rounded-2xl object-cover shadow-xl"
             />
             <img
-              src={images.loading}
+              src="/images/Three_trucks_parked_warehouse_su…_202607101545 1 (1).png"
               alt="Warehouse worker using forklift to load and organize logistics packages for supply chain management"
               className="absolute bottom-0 left-0 h-2/5 w-2/5 rounded-xl border-4 border-white object-cover shadow-lg"
             />
@@ -190,7 +190,7 @@ export function Home({ onNavigate }: { onNavigate: (page: Page) => void }) {
         </div>
         <img
           className="order-1 h-96 w-full rounded-2xl object-cover shadow-lg transition-all duration-700 lg:order-2"
-          src={images.loading}
+          src="/images/Three_trucks_parked_warehouse_su…_202607101545 1 (5).png"
           alt="Professional warehouse workers organizing logistics packages and managing supply chain operations"
           style={{
             transform: about.visible ? 'translateX(0)' : 'translateX(32px)',
@@ -252,7 +252,7 @@ export function Home({ onNavigate }: { onNavigate: (page: Page) => void }) {
             exactly what we deliver.
           </p>
           <img
-            src={images.highway}
+            src="/images/African_professional_overlooking…_2K_202607191200 1.png"
             alt="Multiple logistics trucks traveling on highway - Rayto Prolog professional transportation and freight services"
             className="mt-10 h-64 w-full rounded-2xl object-cover transition-transform duration-700 hover:scale-[1.03]"
           />

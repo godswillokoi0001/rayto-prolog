@@ -2,7 +2,7 @@ import { Check } from 'lucide-react';
 import { Button } from '@/components/Button';
 import { CtaBanner } from '@/components/CtaBanner';
 import { Eyebrow } from '@/components/Eyebrow';
-import { images, type Page } from '@/shared/constants';
+import type { Page } from '@/shared/constants';
 import { useReveal } from '@/shared/useReveal';
 import { useSEO } from '@/shared/useSEO';
 
@@ -43,7 +43,7 @@ export function Industries({ onNavigate }: { onNavigate: (page: Page) => void })
       <section className="relative overflow-hidden bg-[#102b5c] px-6 py-24 text-white">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-30 animate-slow-zoom"
-          style={{ backgroundImage: `url(${images.shelves})` }}
+          style={{ backgroundImage: 'url(/images/Forklift_carrying_goods_warehouse_2K_202607101553 1 (1).png)' }}
         />
         <div className="relative mx-auto max-w-[1160px]">
           <p className="mb-4 animate-fade-in-up text-[10px] font-extrabold uppercase tracking-[0.12em] text-[#e74608]">

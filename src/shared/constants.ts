@@ -9,9 +9,9 @@ export const navItems: { label: string; page: Page }[] = [
 ];
 
 export const images = {
-  warehouse: 'https://images.pexels.com/photos/4483556/pexels-photo-4483556.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
-  shelves: 'https://images.pexels.com/photos/4481528/pexels-photo-4481528.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
-  loading: 'https://images.pexels.com/photos/4487484/pexels-photo-4487484.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
-  truck: 'https://images.pexels.com/photos/27099095/pexels-photo-27099095.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
-  highway: 'https://images.pexels.com/photos/11087830/pexels-photo-11087830.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+  warehouse: '/images/Warehouse_staff_moving_goods_for…_202607191205 (1) 1.png',
+  shelves: '/images/Forklift_carrying_goods_warehouse_2K_202607101553 1 (1).png',
+  loading: '/images/Three_trucks_parked_warehouse_su…_202607101545 1 (1).png',
+  truck: '/images/Three_trucks_parked_warehouse_su…_202607101545 1.png',
+  highway: '/images/African_professional_overlooking…_2K_202607191200 1.png',
 };
