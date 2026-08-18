@@ -7,9 +7,9 @@ export function Header({ page, onNavigate }: { page: Page; onNavigate: (page: Pa
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-100 bg-white">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-10">
-        <button onClick={() => onNavigate('home')} aria-label="Rayto Prolog home">
+    <header className="sticky top-0 z-50 border-b border-slate-200 bg-[#edf0f2] backdrop-blur-sm">
+      <div className="mx-auto flex h-[82px] max-w-[1280px] items-center justify-between gap-5 px-5 lg:px-6">
+        <button onClick={() => onNavigate('home')} aria-label="Rayto Prolog home" className="flex items-center">
           <Logo />
         </button>
 
@@ -18,7 +18,7 @@ export function Header({ page, onNavigate }: { page: Page; onNavigate: (page: Pa
             <button
               key={item.page}
               onClick={() => onNavigate(item.page)}
-              className={`text-sm font-medium transition-colors ${
+              className={`text-[15px] font-medium transition-colors ${
                 page === item.page ? 'text-[#e74608]' : 'text-slate-900 hover:text-[#e74608]'
               }`}
             >
@@ -29,18 +29,19 @@ export function Header({ page, onNavigate }: { page: Page; onNavigate: (page: Pa
 
         <button
           onClick={() => onNavigate('contact')}
-          className="hidden rounded-lg bg-[#e74608] px-6 py-2.5 text-sm font-bold text-white transition hover:bg-[#d63f04] md:block"
+          className="hidden h-[46px] rounded-[12px] bg-[#e74608] px-5 text-sm font-extrabold text-white shadow-sm transition hover:bg-[#d63f04] md:inline-flex md:items-center md:justify-center"
         >
-          Request Quote
+          Request
+          <span className="ml-1.5">Quote</span>
         </button>
 
         <button className="md:hidden" onClick={() => setOpen(!open)} aria-label="Toggle menu">
-          {open ? <X /> : <Menu />}
+          {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
       {open && (
-        <nav className="border-t border-slate-100 bg-white px-6 py-4 md:hidden">
+        <nav className="border-t border-slate-200 bg-white px-5 py-3 md:hidden">
           {navItems.map((item) => (
             <button
               key={item.page}
@@ -48,7 +49,7 @@ export function Header({ page, onNavigate }: { page: Page; onNavigate: (page: Pa
                 onNavigate(item.page);
                 setOpen(false);
               }}
-              className="block w-full border-b border-slate-100 py-3 text-left text-sm font-semibold last:border-0"
+              className="block w-full border-b border-slate-100 py-3 text-left text-sm font-semibold text-slate-900 last:border-0"
             >
               {item.label}
             </button>

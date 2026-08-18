@@ -4,35 +4,73 @@
 @tailwind components;
 @tailwind utilities;
 
-:root { font-family: 'General Sans', 'Manrope', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif; color: #111; background: #fff; font-synthesis: none; text-rendering: optimizeLegibility; }
+:root {
+  font-family: 'General Sans', 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color: #111827;
+  background: #efefef;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --brand-blue: #0f4aad;
+  --brand-blue-deep: #0b3f93;
+  --brand-orange: #e74608;
+  --brand-orange-soft: #f7a35c;
+  --ink: #111827;
+  --muted: #5b6473;
+  --panel: #f3f4f6;
+  --line: #e5e7eb;
+  --white: #ffffff;
+  --footer: #171b22;
+}
+
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; min-width: 320px; background: #efefef; }
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #efefef;
+  color: var(--ink);
+}
 button, a { cursor: pointer; }
 button { font: inherit; }
+img { display: block; max-width: 100%; }
+
+@layer components {
+  .container-shell {
+    @apply mx-auto max-w-[1200px] px-5 md:px-6;
+  }
+
+  .eyebrow {
+    @apply mb-4 text-[10px] font-extrabold uppercase tracking-[0.14em] text-[#e74608];
+  }
+
+  .display-title {
+    @apply text-[2.5rem] font-extrabold leading-[0.96] tracking-[-0.06em] text-slate-900 md:text-[3.5rem] lg:text-[4.25rem];
+  }
+
+  .section-title {
+    @apply text-3xl font-extrabold leading-[1.02] tracking-[-0.06em] text-slate-900 md:text-4xl lg:text-[3.2rem];
+  }
+
+  .section-body {
+    @apply text-base leading-8 text-slate-600;
+  }
+}
 
 @layer utilities {
-  /* Scroll-reveal: elements start hidden + offset, animate in when .is-visible is added */
   .reveal {
     opacity: 0;
-    transform: translateY(28px);
+    transform: translateY(24px);
     transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
     will-change: opacity, transform;
   }
-  .reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .reveal-left { transform: translateX(-32px); }
-  .reveal-right { transform: translateX(32px); }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  .reveal-left { transform: translateX(-24px); }
+  .reveal-right { transform: translateX(24px); }
   .reveal-left.is-visible,
   .reveal-right.is-visible { transform: translateX(0); }
-  .reveal-scale { transform: scale(0.94); }
-  .reveal-scale.is-visible { transform: scale(1); }
 
-  /* Keyframe animations */
   @keyframes fade-in-up {
-    from { opacity: 0; transform: translateY(24px); }
+    from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
   @keyframes fade-in {
@@ -41,35 +79,19 @@ button { font: inherit; }
   }
   @keyframes slow-zoom {
     from { transform: scale(1); }
-    to { transform: scale(1.12); }
-  }
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-  }
-  @keyframes shimmer {
-    0% { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
-  }
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+    to { transform: scale(1.1); }
   }
 
   .animate-fade-in-up { animation: fade-in-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both; }
   .animate-fade-in { animation: fade-in 0.8s ease-out both; }
   .animate-slow-zoom { animation: slow-zoom 18s ease-out forwards; }
-  .animate-float { animation: float 5s ease-in-out infinite; }
-  .animate-marquee { animation: marquee 28s linear infinite; }
 
   @media (prefers-reduced-motion: reduce) {
-    .reveal, .reveal-left, .reveal-right, .reveal-scale {
+    .reveal, .reveal-left, .reveal-right {
       opacity: 1 !important;
       transform: none !important;
       transition: none !important;
     }
-    .animate-fade-in-up, .animate-fade-in, .animate-slow-zoom, .animate-float, .animate-marquee {
-      animation: none !important;
-    }
+    .animate-fade-in-up, .animate-fade-in, .animate-slow-zoom { animation: none !important; }
   }
 }

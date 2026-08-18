@@ -21,62 +21,47 @@ export function Contact() {
     structuredData: {
       '@context': 'https://schema.org',
       '@type': 'WebPage',
-      'name': 'Contact Rayto Prolog',
-      'description': 'Contact us for logistics and supply chain solutions',
-      'url': 'https://raytoprolog.com/#/contact'
-    }
+      name: 'Contact Rayto Prolog',
+      description: 'Contact us for logistics and supply chain solutions',
+      url: 'https://raytoprolog.com/#/contact',
+    },
   });
 
   return (
     <>
-      <section className="relative flex min-h-[570px] items-center justify-center overflow-hidden px-6 py-20 text-center text-white">
-        <div
-          className="absolute inset-0 bg-cover bg-center animate-slow-zoom"
-          style={{ backgroundImage: 'url(/images/Warehouse_staff_moving_goods_for…_202607191205 (1) 1.png)' }}
-        />
+      <section className="relative flex min-h-[480px] items-center justify-center overflow-hidden px-5 py-16 text-center text-white md:min-h-[520px]">
+        <div className="absolute inset-0 bg-cover bg-center opacity-80" style={{ backgroundImage: 'url(/images/Warehouse_staff_moving_goods_for…_202607191205.png)' }} />
+        <div className="absolute inset-0 bg-slate-900/55" />
         <div className="relative mx-auto max-w-3xl">
-          <p className="mb-4 animate-fade-in-up text-[10px] font-extrabold uppercase tracking-[0.12em] text-[#e74608]">
-            Contact us
-          </p>
-          <h1 className="animate-fade-in-up text-5xl font-extrabold leading-[1.05] tracking-[-0.06em] sm:text-7xl [animation-delay:150ms]">
-            Let's Move Your
+          <p className="eyebrow mb-4 text-[#e74608]">Contact us</p>
+          <h1 className="display-title text-white">
+            Let&apos;s Move Your
             <br />
             Business Forward
           </h1>
-          <p className="mx-auto mt-7 max-w-2xl animate-fade-in-up text-base leading-7 text-white/85 [animation-delay:300ms]">
-            Every successful partnership starts with a conversation. Whether you're looking for reliable transportation,
+          <p className="mx-auto mt-7 max-w-2xl text-base leading-8 text-slate-200">
+            Every successful partnership starts with a conversation. Whether you&apos;re looking for reliable transportation,
             warehousing, fleet management, or a complete logistics solution, our team is ready to understand your needs.
           </p>
-          <a
-            href="#contact-form"
-            className="mt-9 inline-flex animate-fade-in-up rounded-md bg-[#0d49ae] px-6 py-4 text-sm font-bold transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#0a3886] hover:shadow-lg [animation-delay:450ms]"
-          >
+          <a href="#contact-form" className="mt-8 inline-flex rounded-[10px] bg-[#0f4aad] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#0b3f93]">
             Request a Quote
           </a>
         </div>
       </section>
 
-      <section id="contact-form" className="mx-auto grid max-w-[1160px] gap-14 px-6 py-20 lg:grid-cols-[.8fr_1.2fr] lg:px-10">
+      <section id="contact-form" className="container-shell grid gap-10 py-20 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
         <div ref={info.ref} className={`reveal reveal-left ${info.visible ? 'is-visible' : ''}`}>
           <Eyebrow>Start a conversation</Eyebrow>
-          <h2 className="text-4xl font-extrabold tracking-[-0.05em] sm:text-5xl">
-            Let's talk about
-            <br />
-            your logistics.
+          <h2 className="section-title max-w-[420px]">
+            Let&apos;s talk about your logistics.
           </h2>
-          <p className="mt-6 text-sm leading-7 text-slate-600">
+          <p className="mt-6 section-body max-w-[420px]">
             Tell us what you need and a member of our team will get back to you with the right next step.
           </p>
-          <div className="mt-10 space-y-5 text-sm">
-            <p className="flex items-center gap-3 transition-transform duration-300 hover:translate-x-1">
-              <MapPin className="text-[#e74608]" size={18} /> Lagos, Nigeria
-            </p>
-            <p className="flex items-center gap-3 transition-transform duration-300 hover:translate-x-1">
-              <Phone className="text-[#e74608]" size={18} /> +234 800 000 0000
-            </p>
-            <p className="flex items-center gap-3 transition-transform duration-300 hover:translate-x-1">
-              <Mail className="text-[#e74608]" size={18} /> hello@raytoprolog.com
-            </p>
+          <div className="mt-10 space-y-5 text-sm text-slate-700">
+            <p className="flex items-center gap-3"><MapPin className="text-[#e74608]" size={18} /> Lagos, Nigeria</p>
+            <p className="flex items-center gap-3"><Phone className="text-[#e74608]" size={18} /> +234 800 000 0000</p>
+            <p className="flex items-center gap-3"><Mail className="text-[#e74608]" size={18} /> hello@raytoprolog.com</p>
           </div>
         </div>
 
@@ -86,53 +71,30 @@ export function Contact() {
             e.preventDefault();
             setSent(true);
           }}
-          className={`rounded-xl bg-[#f1f2f3] p-6 transition-all duration-700 sm:p-9 ${
-            form.visible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-          }`}
+          className={`rounded-[20px] bg-[#f3f4f6] p-6 transition-all duration-700 sm:p-8 ${form.visible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
         >
           <div className="grid gap-5 sm:grid-cols-2">
-            <label className="group text-xs font-bold">
+            <label className="text-xs font-bold uppercase tracking-[0.08em] text-slate-700">
               Your name
-              <input
-                required
-                className="mt-2 w-full rounded-md border-0 bg-white px-4 py-3 text-sm font-normal outline-none ring-1 ring-slate-200 transition-all duration-300 focus:ring-2 focus:ring-[#0d49ae] group-focus-within:translate-x-1"
-                placeholder="Enter your name"
-              />
+              <input required className="mt-2 w-full rounded-[10px] border border-slate-200 bg-white px-4 py-3 text-sm font-normal text-slate-900 outline-none ring-0 transition focus:border-[#0f4aad]" placeholder="Enter your name" />
             </label>
-            <label className="group text-xs font-bold">
+            <label className="text-xs font-bold uppercase tracking-[0.08em] text-slate-700">
               Email address
-              <input
-                required
-                type="email"
-                className="mt-2 w-full rounded-md border-0 bg-white px-4 py-3 text-sm font-normal outline-none ring-1 ring-slate-200 transition-all duration-300 focus:ring-2 focus:ring-[#0d49ae] group-focus-within:translate-x-1"
-                placeholder="you@company.com"
-              />
+              <input required type="email" className="mt-2 w-full rounded-[10px] border border-slate-200 bg-white px-4 py-3 text-sm font-normal text-slate-900 outline-none ring-0 transition focus:border-[#0f4aad]" placeholder="you@company.com" />
             </label>
           </div>
-          <label className="group mt-5 block text-xs font-bold">
+          <label className="mt-5 block text-xs font-bold uppercase tracking-[0.08em] text-slate-700">
             Company
-            <input
-              className="mt-2 w-full rounded-md border-0 bg-white px-4 py-3 text-sm font-normal outline-none ring-1 ring-slate-200 transition-all duration-300 focus:ring-2 focus:ring-[#0d49ae] group-focus-within:translate-x-1"
-              placeholder="Your company name"
-            />
+            <input className="mt-2 w-full rounded-[10px] border border-slate-200 bg-white px-4 py-3 text-sm font-normal text-slate-900 outline-none ring-0 transition focus:border-[#0f4aad]" placeholder="Your company name" />
           </label>
-          <label className="group mt-5 block text-xs font-bold">
+          <label className="mt-5 block text-xs font-bold uppercase tracking-[0.08em] text-slate-700">
             How can we help?
-            <textarea
-              required
-              rows={5}
-              className="mt-2 w-full resize-none rounded-md border-0 bg-white px-4 py-3 text-sm font-normal outline-none ring-1 ring-slate-200 transition-all duration-300 focus:ring-2 focus:ring-[#0d49ae] group-focus-within:translate-x-1"
-              placeholder="Tell us a little about what you need"
-            />
+            <textarea required rows={5} className="mt-2 w-full resize-none rounded-[10px] border border-slate-200 bg-white px-4 py-3 text-sm font-normal text-slate-900 outline-none ring-0 transition focus:border-[#0f4aad]" placeholder="Tell us a little about what you need" />
           </label>
-          <button className="mt-6 rounded-md bg-[#e74608] px-6 py-4 text-sm font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#c93804] hover:shadow-lg">
+          <button className="mt-6 rounded-[10px] bg-[#e74608] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#d63f04]">
             {sent ? 'Message sent' : 'Send message'}
           </button>
-          {sent && (
-            <p className="mt-3 animate-fade-in text-sm font-medium text-green-700">
-              Thanks — our team will be in touch shortly.
-            </p>
-          )}
+          {sent && <p className="mt-3 text-sm font-medium text-green-700">Thanks — our team will be in touch shortly.</p>}
         </form>
       </section>
 
@@ -140,3 +102,4 @@ export function Contact() {
     </>
   );
 }
+

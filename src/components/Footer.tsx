@@ -3,36 +3,36 @@ import { type Page } from '@/shared/constants';
 
 export function Footer({ onNavigate }: { onNavigate: (page: Page) => void }) {
   return (
-    <footer className="bg-[#1a1a1a] px-6 py-16 text-white lg:px-12">
-      <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-[1.3fr_1fr_1.2fr_1fr]">
+    <footer className="bg-[#171b22] px-5 py-12 text-white lg:px-6">
+      <div className="mx-auto grid max-w-[1200px] gap-10 md:grid-cols-[1.2fr_0.8fr_1.1fr_0.8fr]">
         <div>
           <Logo light />
         </div>
 
         <div>
-          <h3 className="mb-6 text-xs font-bold uppercase tracking-wider text-white/90">Company</h3>
+          <h3 className="mb-5 text-xs font-bold uppercase tracking-[0.14em] text-white/80">Company</h3>
           <div className="space-y-3 text-sm text-white/70">
-            <button onClick={() => onNavigate('about')} className="block transition hover:text-[#e74608]">About Us</button>
-            <button onClick={() => onNavigate('industries')} className="block transition hover:text-[#e74608]">Industries We Serve</button>
-            <button className="block transition hover:text-[#e74608]">How We Work</button>
-            <button onClick={() => onNavigate('contact')} className="block transition hover:text-[#e74608]">Contact Us</button>
+            <button onClick={() => onNavigate('about')} className="block transition hover:text-[#f7a35c]">About Us</button>
+            <button onClick={() => onNavigate('industries')} className="block transition hover:text-[#f7a35c]">Industries We Serve</button>
+            <button onClick={() => onNavigate('home')} className="block transition hover:text-[#f7a35c]">How We Work</button>
+            <button onClick={() => onNavigate('contact')} className="block transition hover:text-[#f7a35c]">Contact Us</button>
           </div>
         </div>
 
         <div>
-          <h3 className="mb-6 text-xs font-bold uppercase tracking-wider text-white/90">Services</h3>
+          <h3 className="mb-5 text-xs font-bold uppercase tracking-[0.14em] text-white/80">Services</h3>
           <ul className="space-y-3 text-sm text-white/70">
-            <li className="transition hover:text-[#e74608]">Transportation & Freight</li>
-            <li className="transition hover:text-[#e74608]">Fleet Management</li>
-            <li className="transition hover:text-[#e74608]">Warehousing & Storage</li>
-            <li className="transition hover:text-[#e74608]">Supply Chain Solutions</li>
-            <li className="transition hover:text-[#e74608]">E-commerce Logistics</li>
-            <li className="transition hover:text-[#e74608]">Last-Mile Delivery</li>
+            <li className="transition hover:text-[#f7a35c]">Transportation &amp; Freight</li>
+            <li className="transition hover:text-[#f7a35c]">Fleet Management</li>
+            <li className="transition hover:text-[#f7a35c]">Warehousing &amp; Storage</li>
+            <li className="transition hover:text-[#f7a35c]">Supply Chain Solutions</li>
+            <li className="transition hover:text-[#f7a35c]">E-commerce Logistics</li>
+            <li className="transition hover:text-[#f7a35c]">Last-Mile Delivery</li>
           </ul>
         </div>
 
         <div>
-          <h3 className="mb-6 text-xs font-bold uppercase tracking-wider text-white/90">Contact</h3>
+          <h3 className="mb-5 text-xs font-bold uppercase tracking-[0.14em] text-white/80">Contact</h3>
           <ul className="space-y-3 text-sm text-white/70">
             <li>Address</li>
             <li>Phone</li>
@@ -41,12 +41,12 @@ export function Footer({ onNavigate }: { onNavigate: (page: Page) => void }) {
         </div>
       </div>
 
-      <div className="mx-auto mt-12 max-w-6xl border-t border-white/10 pt-8">
-        <div className="flex flex-col justify-between gap-4 text-xs text-white/50 md:flex-row">
+      <div className="mx-auto mt-12 max-w-[1200px] border-t border-white/10 pt-7">
+        <div className="flex flex-col justify-between gap-3 text-xs text-white/50 md:flex-row md:items-center">
           <span>© 2026 Rayto Prolog. All rights reserved.</span>
-          <div className="space-x-6">
-            <span className="transition hover:text-white/70">Privacy Policy</span>
-            <span className="transition hover:text-white/70">Terms</span>
+          <div className="flex gap-5">
+            <span className="transition hover:text-white/80">Privacy Policy</span>
+            <span className="transition hover:text-white/80">Terms</span>
           </div>
         </div>
       </div>
