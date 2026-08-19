@@ -8,7 +8,7 @@ export function Header({ page, onNavigate }: { page: Page; onNavigate: (page: Pa
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-[#edf0f2] backdrop-blur-sm">
-      <div className="mx-auto flex h-[82px] max-w-[1280px] items-center justify-between gap-5 px-5 lg:px-6">
+      <div className="mx-auto flex h-16 max-w-[1280px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-6">
         <button onClick={() => onNavigate('home')} aria-label="Rayto Prolog home" className="flex items-center">
           <Logo />
         </button>

@@ -5,7 +5,7 @@ export function Logo({ light = false }: { light?: boolean }) {
     <img
       src={src}
       alt="Rayto Prolog logo"
-      className={light ? 'h-10 w-auto object-contain' : 'h-10 w-auto object-contain'}
+      className="h-7 sm:h-8 w-auto object-contain"
     />
   );
 }

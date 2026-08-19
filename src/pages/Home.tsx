@@ -114,11 +114,11 @@ export function Home({ onNavigate }: { onNavigate: (page: Page) => void }) {
               className={`flex min-h-[180px] flex-col items-start justify-start rounded-[18px] bg-transparent p-6 transition-all duration-700 ${pillarsReveal.visible ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'}`}
               style={{ transitionDelay: `${i * 100}ms` }}
             >
-              <span className="mb-6 flex h-[74px] w-[74px] items-center justify-center rounded-full bg-[#0f4aad] text-white shadow-[0_8px_18px_rgba(15,74,173,0.24)]">
-                <Icon className="h-8 w-8" strokeWidth={2.2} />
+              <span className="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-[#0f4aad] text-white shadow-[0_6px_16px_rgba(15,74,173,0.2)]">
+                <Icon className="h-6 w-6" strokeWidth={2.2} />
               </span>
-              <h3 className="text-[2.1rem] font-extrabold leading-[1.05] tracking-[-0.05em] text-slate-900">{title}</h3>
-              <p className="mt-3 max-w-[560px] text-[1.03rem] leading-[1.75rem] text-slate-700">{copy}</p>
+              <h3 className="text-2xl font-extrabold leading-[1.1] tracking-[-0.04em] text-slate-900">{title}</h3>
+              <p className="mt-2.5 max-w-[560px] text-sm leading-relaxed text-slate-600">{copy}</p>
             </div>
           ))}
         </div>

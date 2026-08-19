@@ -3,8 +3,8 @@ import { type Page } from '@/shared/constants';
 
 export function Footer({ onNavigate }: { onNavigate: (page: Page) => void }) {
   return (
-    <footer className="bg-[#171b22] px-5 py-12 text-white lg:px-6">
-      <div className="mx-auto grid max-w-[1200px] gap-10 md:grid-cols-[1.2fr_0.8fr_1.1fr_0.8fr]">
+    <footer className="bg-[#171b22] px-4 py-10 text-white sm:px-6 lg:px-6 lg:py-12">
+      <div className="mx-auto grid max-w-[1200px] gap-8 sm:grid-cols-2 md:grid-cols-[1.2fr_0.8fr_1.1fr_0.8fr] lg:gap-10">
         <div>
           <Logo light />
         </div>

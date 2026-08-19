@@ -36,23 +36,23 @@ img { display: block; max-width: 100%; }
 
 @layer components {
   .container-shell {
-    @apply mx-auto max-w-[1200px] px-5 md:px-6;
+    @apply mx-auto max-w-[1200px] px-4 sm:px-6;
   }
 
   .eyebrow {
-    @apply mb-4 text-[10px] font-extrabold uppercase tracking-[0.14em] text-[#e74608];
+    @apply mb-3 text-[10px] font-extrabold uppercase tracking-[0.14em] text-[#e74608];
   }
 
   .display-title {
-    @apply text-[2.5rem] font-extrabold leading-[0.96] tracking-[-0.06em] text-slate-900 md:text-[3.5rem] lg:text-[4.25rem];
+    @apply text-[1.75rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-slate-900 sm:text-[2.6rem] md:text-[3.2rem] lg:text-[3.8rem];
   }
 
   .section-title {
-    @apply text-3xl font-extrabold leading-[1.02] tracking-[-0.06em] text-slate-900 md:text-4xl lg:text-[3.2rem];
+    @apply text-[1.5rem] font-extrabold leading-[1.12] tracking-[-0.04em] text-slate-900 sm:text-[2.1rem] md:text-[2.5rem] lg:text-[2.8rem];
   }
 
   .section-body {
-    @apply text-base leading-8 text-slate-600;
+    @apply text-sm leading-relaxed text-slate-600 sm:text-base sm:leading-8;
   }
 }
 

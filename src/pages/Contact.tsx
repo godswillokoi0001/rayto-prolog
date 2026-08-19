@@ -59,9 +59,9 @@ export function Contact() {
             Tell us what you need and a member of our team will get back to you with the right next step.
           </p>
           <div className="mt-10 space-y-5 text-sm text-slate-700">
-            <p className="flex items-center gap-3"><MapPin className="text-[#e74608]" size={18} /> Lagos, Nigeria</p>
+            <p className="flex items-center gap-3"><MapPin className="text-[#e74608]" size={18} /> Abuja, Nigeria</p>
             <p className="flex items-center gap-3"><Phone className="text-[#e74608]" size={18} /> +234 800 000 0000</p>
-            <p className="flex items-center gap-3"><Mail className="text-[#e74608]" size={18} /> hello@raytoprolog.com</p>
+            <p className="flex items-center gap-3"><Mail className="text-[#e74608]" size={18} /> info@raytoprolog.com</p>
           </div>
         </div>
 
