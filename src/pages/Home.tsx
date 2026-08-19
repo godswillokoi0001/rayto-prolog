@@ -85,7 +85,7 @@ export function Home({ onNavigate }: { onNavigate: (page: Page) => void }) {
               Dependable transportation, warehousing, fleet management, and supply chain solutions that help
               businesses across Nigeria operate with confidence.
             </p>
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-8 flex flex-row items-center gap-3 sm:gap-4">
               <Button onClick={() => onNavigate('contact')}>Request Quote</Button>
               <Button secondary onClick={() => onNavigate('services')}>Explore Our Services</Button>
             </div>
