@@ -75,7 +75,7 @@ export function Home({ onNavigate }: { onNavigate: (page: Page) => void }) {
       <section className="bg-white px-5 pb-14 pt-10 md:pb-20 md:pt-14 lg:pb-24">
         <div className="container-shell grid items-center gap-10 lg:grid-cols-[1.02fr_1fr] lg:gap-14">
           <div className="max-w-xl">
-            <p className="eyebrow mb-4">Trusted Logistics XXXXXXX &amp; Supply Chain Partner</p>
+            <p className="eyebrow mb-4">Trusted Logistics &amp; Supply Chain Partner</p>
             <h1 className="display-title text-slate-900">
               Logistics That Keeps
               <br />
