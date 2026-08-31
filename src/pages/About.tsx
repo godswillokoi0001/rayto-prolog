@@ -37,10 +37,10 @@ const leadership = [
     image: '/images/team/IMG-20260826-WA0009.jpg',
   },
   {
-    name: 'Amb. Otu Ubi Dennis',
-    role: 'FICMC',
-    location: 'HR/Financial Consultant\nRaytoprolog Ltd',
-    image: '/images/African_professional_overlooking…_2K_202607191200 1.png',
+    name: 'Amb. Otu Ubi Dennis FICMC',
+    role: 'HR/Financial Consultant',
+    location: '',
+    image: '/images/team/IMG-20260831-WA0000.jpg',
   },
 ];
 
@@ -205,27 +205,42 @@ export function About({ onNavigate }: { onNavigate: (page: Page) => void }) {
 
       <section className="bg-[#f3f4f6] py-20">
         <div className="container-shell text-center">
-          <Eyebrow>Leadership</Eyebrow>
-          <h2 className="section-title mx-auto max-w-[700px]">Our Leadership</h2>
+          <Eyebrow>Board of Trustees</Eyebrow>
+
           <div ref={leadershipReveal.ref} className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {leadership.map(({ name, role, location, image }, i) => (
-              <div
-                key={name}
-                className={`overflow-hidden rounded-[18px] border border-slate-200 bg-white shadow-sm transition-all duration-700 ${leadershipReveal.visible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
-                style={{ transitionDelay: `${i * 100}ms` }}
-              >
-                <div className="h-64 w-full overflow-hidden sm:h-72">
-                  <img src={image} alt={name} className="h-full w-full object-cover object-center" />
+            {leadership.map(({ name, role, location, image }, i) => {
+              const formattedName = name.includes('FICMC')
+                ? name.replace('FICMC', '<span class="italic">FICMC</span>')
+                : name;
+
+              return (
+                <div
+                  key={name}
+                  className={`overflow-hidden rounded-[18px] border border-slate-200 bg-white shadow-sm transition-all duration-700 ${leadershipReveal.visible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
+                  style={{ transitionDelay: `${i * 100}ms` }}
+                >
+                  <div className="h-64 w-full overflow-hidden sm:h-72">
+                    <img src={image} alt={name} className="h-full w-full object-cover object-center" />
+                  </div>
+                  <div className="p-5 text-left">
+                    <h3 className="text-lg font-extrabold leading-tight tracking-[-0.03em] text-slate-900">
+                      {formattedName.includes('<span') ? (
+                        <>
+                          {formattedName.replace(/<span class="italic">FICMC<\/span>/, '')}
+                          <span className="italic">FICMC</span>
+                        </>
+                      ) : (
+                        name
+                      )}
+                    </h3>
+                    <p className="mt-3 text-sm font-semibold text-[#0f4aad]">{role}</p>
+                    {location && (
+                      <p className="mt-2 whitespace-pre-line text-sm leading-6 text-slate-600">{location}</p>
+                    )}
+                  </div>
                 </div>
-                <div className="p-5 text-left">
-                  <h3 className="text-lg font-extrabold leading-tight tracking-[-0.03em] text-slate-900">{name}</h3>
-                  <p className="mt-3 text-sm font-semibold text-[#0f4aad]">{role}</p>
-                  {location && (
-                    <p className="mt-2 whitespace-pre-line text-sm leading-6 text-slate-600">{location}</p>
-                  )}
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
