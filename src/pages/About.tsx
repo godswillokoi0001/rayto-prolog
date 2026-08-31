@@ -96,7 +96,7 @@ export function About({ onNavigate }: { onNavigate: (page: Page) => void }) {
             </div>
           </div>
 
-          <div className="h-[380px] w-full overflow-hidden rounded-[24px] shadow-[0_22px_50px_rgba(15,28,48,0.12)] sm:h-[430px] lg:h-[500px]">
+          <div className="hidden h-[380px] w-full overflow-hidden rounded-[24px] shadow-[0_22px_50px_rgba(15,28,48,0.12)] sm:h-[430px] lg:block lg:h-[500px]">
             <img
               src="/images/Three_trucks_parked_warehouse_su…_202607101545 1 (2).png"
               alt="Raytoprolog truck fleet in a warehouse compound"
