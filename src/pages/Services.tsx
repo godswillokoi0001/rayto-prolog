@@ -36,13 +36,24 @@ export function Services({ onNavigate }: { onNavigate: (page: Page) => void }) {
 
   return (
     <>
-      <section className="bg-[#0c2347] px-5 py-16 text-white md:py-20">
-        <div className="container-shell">
-          <p className="eyebrow mb-4 text-[#e74608]">What we do</p>
-          <h1 className="display-title max-w-[760px] text-white">Complete Logistics Solutions Under One Partner.</h1>
-          <p className="mt-7 max-w-xl text-base leading-8 text-slate-200">
-            From the road to the warehouse and everywhere in between, we help businesses move with confidence.
-          </p>
+      <section className="relative overflow-hidden bg-slate-900 px-5 py-16 text-white md:py-20">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-35"
+          style={{
+            backgroundImage: "url('/images/Forklift_carrying_goods_warehouse_2K_202607101553 1.png')",
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+          }}
+        />
+
+        <div className="container-shell relative flex min-h-[320px] items-center justify-center text-center md:min-h-[420px]">
+          <div className="max-w-3xl">
+            <p className="eyebrow mb-4 text-[#e74608]">What we do</p>
+            <h1 className="display-title mx-auto max-w-[760px] text-white">Complete Logistics Solutions Under One Partner.</h1>
+            <p className="mx-auto mt-7 max-w-xl text-base leading-8 text-slate-200">
+              From the road to the warehouse and everywhere in between, we help businesses move with confidence.
+            </p>
+          </div>
         </div>
       </section>
 

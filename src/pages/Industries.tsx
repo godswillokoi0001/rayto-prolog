@@ -19,7 +19,7 @@ const industryEntries = [
     title: 'Retail & Distribution',
     summary: 'Fast, flexible support for product movement from warehouse to storefront and everywhere in between.',
     points: ['Inventory planning', 'Route coordination', 'Demand-driven delivery'],
-    image: '/images/Three_trucks_parked_warehouse_su…_202607101545 1 (5).png',
+    image: '/images/Three_trucks_parked_warehouse_su…_202607101545 1 (1).png',
     icon: ShoppingBag,
     reverse: true,
   },
@@ -96,17 +96,26 @@ export function Industries({ onNavigate }: { onNavigate: (page: Page) => void })
   return (
     <>
       <section className="relative overflow-hidden bg-slate-900 text-white">
-        <div className="absolute inset-0 bg-cover bg-center opacity-35" style={{ backgroundImage: 'url(/images/Forklift_carrying_goods_warehouse_2K_202607101553 4.png)' }} />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-900/60" />
-        <div className="container-shell relative py-20 md:py-24">
-          <p className="eyebrow mb-4 text-[#e74608]">Who we serve</p>
-          <h1 className="display-title max-w-[720px] text-white">
-            Logistics Built Around Your Industry.
-          </h1>
-          <p className="mt-7 max-w-xl text-base leading-8 text-slate-200">
-            Every industry moves differently. Our approach adapts to the demands, timelines, and opportunities that
-            make your business unique.
-          </p>
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-35"
+          style={{
+            backgroundImage: "url('/images/Forklift_carrying_goods_warehouse_2K_202607101553 4.png')",
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+          }}
+        />
+
+        <div className="container-shell relative flex min-h-[320px] items-center justify-center py-20 text-center md:min-h-[420px] md:py-24">
+          <div className="max-w-3xl">
+            <p className="eyebrow mb-4 text-[#e74608]">Who we serve</p>
+            <h1 className="display-title mx-auto max-w-[720px] text-white">
+              Logistics Built Around Your Industry.
+            </h1>
+            <p className="mx-auto mt-7 max-w-xl text-base leading-8 text-slate-200">
+              Every industry moves differently. Our approach adapts to the demands, timelines, and opportunities that
+              make your business unique.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -143,7 +152,9 @@ export function Industries({ onNavigate }: { onNavigate: (page: Page) => void })
           <div className="container-shell grid gap-8 lg:grid-cols-2 lg:items-center">
             {reverse ? (
               <>
-                <img src={image} alt={title} className="h-[260px] w-full rounded-[22px] object-cover" />
+                <div className="aspect-[16/10] w-full overflow-hidden rounded-[22px]">
+                  <img src={image} alt={title} className="h-full w-full rounded-[22px] object-cover object-center" />
+                </div>
                 <div className="space-y-4">
                   <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#0f4aad] text-white">
                     <Icon className="h-5 w-5" strokeWidth={2.2} />
@@ -183,7 +194,9 @@ export function Industries({ onNavigate }: { onNavigate: (page: Page) => void })
                     We help with this <ArrowRight size={14} />
                   </button>
                 </div>
-                <img src={image} alt={title} className="h-[260px] w-full rounded-[22px] object-cover" />
+                <div className="aspect-[16/10] w-full overflow-hidden rounded-[22px]">
+                  <img src={image} alt={title} className="h-full w-full rounded-[22px] object-cover object-center" />
+                </div>
               </>
             )}
           </div>

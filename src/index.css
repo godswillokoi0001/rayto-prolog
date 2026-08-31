@@ -82,6 +82,34 @@ img { display: block; max-width: 100%; }
     to { transform: scale(1.1); }
   }
 
+  @keyframes partner-marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .partners-marquee {
+    overflow: hidden;
+    width: 100%;
+    mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  }
+
+  .partners-track {
+    display: flex;
+    width: max-content;
+    align-items: center;
+    animation: partner-marquee 30s linear infinite;
+    will-change: transform;
+  }
+
+  .partners-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+    padding-right: 1rem;
+  }
+
   .animate-fade-in-up { animation: fade-in-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both; }
   .animate-fade-in { animation: fade-in 0.8s ease-out both; }
   .animate-slow-zoom { animation: slow-zoom 18s ease-out forwards; }
@@ -92,6 +120,6 @@ img { display: block; max-width: 100%; }
       transform: none !important;
       transition: none !important;
     }
-    .animate-fade-in-up, .animate-fade-in, .animate-slow-zoom { animation: none !important; }
+    .animate-fade-in-up, .animate-fade-in, .animate-slow-zoom, .animate-partner-marquee { animation: none !important; }
   }
 }

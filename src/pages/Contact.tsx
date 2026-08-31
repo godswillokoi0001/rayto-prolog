@@ -1,9 +1,16 @@
 import { useState } from 'react';
-import { Mail, MapPin, Phone } from 'lucide-react';
+import { Mail, MapPin, MessageCircle, Phone } from 'lucide-react';
 import { CtaBanner } from '@/components/CtaBanner';
 import { Eyebrow } from '@/components/Eyebrow';
 import { useReveal } from '@/shared/useReveal';
 import { useSEO } from '@/shared/useSEO';
+
+const contactNumbers = [
+  { label: 'Main Line', number: '08036492744', href: 'tel:+2348036492744', primary: true },
+  { label: 'Alternative Line', number: '08076489927', href: 'tel:+2348076489927', primary: false },
+  { label: 'Alternative Line 2', number: '09032617555', href: 'tel:+2349032617555', primary: false },
+  { label: 'WhatsApp Only', number: '09160600899', href: 'https://wa.me/2349160600899', primary: false, whatsapp: true },
+];
 
 export function Contact() {
   const [sent, setSent] = useState(false);
@@ -58,9 +65,49 @@ export function Contact() {
           <p className="mt-6 section-body max-w-[420px]">
             Tell us what you need and a member of our team will get back to you with the right next step.
           </p>
-          <div className="mt-10 space-y-5 text-sm text-slate-700">
+
+          <div className="mt-8 rounded-[22px] border border-slate-200 bg-[#f8f9fb] p-4 shadow-[0_14px_32px_rgba(15,28,48,0.04)] sm:p-5">
+            <div className="flex items-center gap-3 pb-4">
+              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#0f4aad] text-white">
+                <Phone className="h-4 w-4" strokeWidth={2.2} />
+              </span>
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#e74608]">Contact information</p>
+                <h3 className="mt-1 text-lg font-extrabold tracking-[-0.03em] text-slate-900">Speak with our team</h3>
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              {contactNumbers.map(({ label, number, href, primary, whatsapp }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target={whatsapp ? '_blank' : undefined}
+                  rel={whatsapp ? 'noreferrer' : undefined}
+                  className={`flex items-center justify-between gap-3 rounded-[14px] border px-4 py-3 text-left transition hover:border-[#0f4aad] hover:bg-white ${primary ? 'border-[#0f4aad] bg-[#0f4aad] text-white shadow-[0_10px_24px_rgba(15,74,173,0.15)]' : 'border-slate-200 bg-white text-slate-800'}`}
+                >
+                  <div className="min-w-0">
+                    <p className={`text-[10px] font-bold uppercase tracking-[0.12em] ${primary ? 'text-white/80' : 'text-slate-500'}`}>
+                      {label}
+                    </p>
+                    <p className="mt-1 text-base font-bold tracking-[-0.03em] sm:text-lg">{number}</p>
+                  </div>
+                  {whatsapp ? (
+                    <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${primary ? 'bg-white/10 text-white' : 'bg-[#ecfdf5] text-[#0f4aad]'}`}>
+                      <MessageCircle className="h-4 w-4" strokeWidth={2.2} />
+                    </span>
+                  ) : (
+                    <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${primary ? 'bg-white/10 text-white' : 'bg-slate-100 text-slate-600'}`}>
+                      <Phone className="h-4 w-4" strokeWidth={2.2} />
+                    </span>
+                  )}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-8 space-y-5 text-sm text-slate-700">
             <p className="flex items-center gap-3"><MapPin className="text-[#e74608]" size={18} /> Abuja, Nigeria</p>
-            <p className="flex items-center gap-3"><Phone className="text-[#e74608]" size={18} /> +234 800 000 0000</p>
             <p className="flex items-center gap-3"><Mail className="text-[#e74608]" size={18} /> info@raytoprolog.com</p>
           </div>
         </div>

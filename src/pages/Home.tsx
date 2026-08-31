@@ -2,6 +2,7 @@ import { ArrowRight, Building2, ClipboardCheck, Handshake, Route, Truck } from '
 import { Button } from '@/components/Button';
 import { CtaBanner } from '@/components/CtaBanner';
 import { Eyebrow } from '@/components/Eyebrow';
+import { Partners } from '@/components/Partners';
 import type { Page } from '@/shared/constants';
 import { useReveal } from '@/shared/useReveal';
 import { useSEO } from '@/shared/useSEO';
@@ -210,6 +211,8 @@ export function Home({ onNavigate }: { onNavigate: (page: Page) => void }) {
           </div>
         </div>
       </section>
+
+      <Partners />
 
       <section className="bg-[#f3f4f6] py-20">
         <div className="container-shell text-center">
