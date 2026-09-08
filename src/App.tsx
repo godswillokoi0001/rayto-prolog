@@ -6,6 +6,7 @@ import { About } from '@/pages/About';
 import { Services } from '@/pages/Services';
 import { Industries } from '@/pages/Industries';
 import { Contact } from '@/pages/Contact';
+import { WhatsAppFloat } from '@/components/WhatsAppFloat';
 import { type Page } from '@/shared/constants';
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         {page === 'contact' && <Contact />}
       </main>
       <Footer onNavigate={navigate} />
+      <WhatsAppFloat />
     </div>
   );
 }

@@ -1,4 +1,15 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+declare global {
+  interface Window {
+    grecaptcha: {
+      ready: (callback: () => void) => void;
+      execute: (
+        siteKey: string,
+        options: { action: string }
+      ) => Promise<string>;
+    };
+  }
+}
 import { Mail, MapPin, MessageCircle, Phone } from 'lucide-react';
 import { CtaBanner } from '@/components/CtaBanner';
 import { Eyebrow } from '@/components/Eyebrow';
@@ -11,11 +22,75 @@ const contactNumbers = [
   { label: 'Alternative Line 2', number: '09032617555', href: 'tel:+2349032617555', primary: false },
   { label: 'WhatsApp Only', number: '09160600899', href: 'https://wa.me/2349160600899', primary: false, whatsapp: true },
 ];
+const recaptchaSiteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
 
 export function Contact() {
   const [sent, setSent] = useState(false);
+  const [captchaError, setCaptchaError] = useState<string | null>(null);
   const info = useReveal<HTMLDivElement>();
   const form = useReveal<HTMLFormElement>();
+
+  useEffect(() => {
+    if (!recaptchaSiteKey || document.querySelector('script[data-recaptcha]')) return;
+
+    const script = document.createElement('script');
+    script.async = true;
+    script.defer = true;
+    script.dataset.recaptcha = 'true';
+    script.src = `https://www.google.com/recaptcha/api.js?render=${encodeURIComponent(recaptchaSiteKey)}`;
+    document.head.appendChild(script);
+    return () => {
+      script.remove();
+    };
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setCaptchaError(null);
+
+    let token = '';
+    if (recaptchaSiteKey) {
+      if (!window.grecaptcha) {
+        setCaptchaError('Security verification is still loading. Please try again.');
+        return;
+      }
+
+      try {
+        token = await new Promise<string>((resolve, reject) => {
+          window.grecaptcha.ready(() => {
+            window.grecaptcha.execute(recaptchaSiteKey, { action: 'contact_form' })
+              .then(resolve)
+              .catch(reject);
+          });
+        });
+      } catch {
+        setCaptchaError('Security verification failed. Please try again.');
+        return;
+      }
+    }
+
+    const formData = new FormData(form.ref?.current as HTMLFormElement);
+    if (token) formData.append('recaptcha', token);
+
+    try {
+      const response = await fetch('https://formsubmit.co/info@raytoprolog.com', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          Accept: 'application/json',
+        },
+      });
+
+      if (response.ok) {
+        setSent(true);
+        form.ref?.current?.reset();
+      } else {
+        setCaptchaError('Failed to send message. Please try again.');
+      }
+    } catch {
+      setCaptchaError('Failed to send message. Please try again.');
+    }
+  };
 
   useSEO({
     title: 'Contact Rayto Prolog | Get a Logistics Quote Today',
@@ -114,10 +189,7 @@ export function Contact() {
 
         <form
           ref={form.ref}
-          onSubmit={(e) => {
-            e.preventDefault();
-            setSent(true);
-          }}
+          onSubmit={handleSubmit}
           className={`rounded-[20px] bg-[#f3f4f6] p-6 transition-all duration-700 sm:p-8 ${form.visible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
         >
           <div className="grid gap-5 sm:grid-cols-2">
@@ -138,11 +210,14 @@ export function Contact() {
             How can we help?
             <textarea required rows={5} className="mt-2 w-full resize-none rounded-[10px] border border-slate-200 bg-white px-4 py-3 text-sm font-normal text-slate-900 outline-none ring-0 transition focus:border-[#0f4aad]" placeholder="Tell us a little about what you need" />
           </label>
-          <button className="mt-6 rounded-[10px] bg-[#e74608] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#d63f04]">
+          <div id="recaptcha" className="mt-5 w-full" />
+          <button type="submit" className="mt-6 rounded-[10px] bg-[#e74608] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#d63f04]">
             {sent ? 'Message sent' : 'Send message'}
           </button>
           {sent && <p className="mt-3 text-sm font-medium text-green-700">Thanks — our team will be in touch shortly.</p>}
+          {captchaError && <p className="mt-2 text-sm text-red-600">Please complete the ReCaptcha verification.</p>}
         </form>
+
       </section>
 
       <CtaBanner onNavigate={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />

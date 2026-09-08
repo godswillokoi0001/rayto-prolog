@@ -82,6 +82,24 @@ img { display: block; max-width: 100%; }
     to { transform: scale(1.1); }
   }
 
+  @keyframes whatsapp-attention {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+    35% {
+      transform: scale(1.14);
+      box-shadow: 0 0 0 10px rgba(37, 211, 102, 0.18), 0 10px 30px rgba(37, 211, 102, 0.4);
+    }
+    65% {
+      transform: scale(1.08);
+      box-shadow: 0 0 0 5px rgba(37, 211, 102, 0.1), 0 10px 28px rgba(37, 211, 102, 0.3);
+    }
+  }
+
+  .whatsapp-attention { animation: none; }
+  .whatsapp-attention-active { animation: whatsapp-attention 1.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
   @keyframes partner-marquee {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
