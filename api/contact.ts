@@ -1,4 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
+import { Resend } from 'resend';
 
 type ContactPayload = {
   name?: string;
@@ -13,26 +14,24 @@ export default async function handler(request: VercelRequest, response: VercelRe
   }
 
   const apiKey = process.env.RESEND_API_KEY;
-  const fromEmail = process.env.RESEND_FROM_EMAIL;
-  if (!apiKey || !fromEmail) {
+  const emailDomain = process.env.RESEND_EMAIL_DOMAIN?.replace(/^https?:\/\//, '').replace(/\/$/, '');
+  if (!apiKey || !emailDomain) {
     return response.status(500).json({ error: 'Email service is not configured' });
   }
+
+  const resend = new Resend(apiKey);
+  const fromEmail = `Rayto Prolog <noreply@${emailDomain}>`;
 
   const { name, email, company, message } = request.body as ContactPayload;
   if (!name || !email || !message) {
     return response.status(400).json({ error: 'Name, email, and message are required' });
   }
 
-  const resendResponse = await fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
+  try {
+    const { error } = await resend.emails.send({
       from: fromEmail,
       to: ['info@raytoprolog.com'],
-      reply_to: email,
+      replyTo: email,
       subject: `New contact enquiry from ${name}`,
       html: `
         <h2>New contact enquiry</h2>
@@ -42,14 +41,18 @@ export default async function handler(request: VercelRequest, response: VercelRe
         <p><strong>Message:</strong></p>
         <p>${escapeHtml(message).replace(/\n/g, '<br />')}</p>
       `,
-    }),
-  });
+    });
 
-  if (!resendResponse.ok) {
-    return response.status(502).json({ error: 'Email provider rejected the message' });
+    if (error) {
+      console.error('Resend rejected contact email:', error);
+      return response.status(502).json({ error: 'Email provider rejected the message' });
+    }
+
+    return response.status(200).json({ success: true });
+  } catch (error) {
+    console.error('Resend request failed:', error);
+    return response.status(502).json({ error: 'Unable to send email right now' });
   }
-
-  return response.status(200).json({ success: true });
 }
 
 function escapeHtml(value: string) {

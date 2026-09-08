@@ -9,7 +9,7 @@ Configure these environment variables in the deployment platform:
 
 ```text
 RESEND_API_KEY=your-resend-api-key
-RESEND_FROM_EMAIL=Rayto Prolog <noreply@your-verified-domain.com>
+RESEND_EMAIL_DOMAIN=your-verified-domain.com
 ```
 
-`RESEND_FROM_EMAIL` must use a domain verified in Resend. The API key must remain server-side and should never be added to frontend code or committed to the repository.
+`RESEND_EMAIL_DOMAIN` must be verified in Resend. The endpoint sends from `Rayto Prolog <noreply@RESEND_EMAIL_DOMAIN>`. The API key must remain server-side and should never be added to frontend code or committed to the repository.
