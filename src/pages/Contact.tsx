@@ -70,24 +70,25 @@ export function Contact() {
     }
 
     const formData = new FormData(form.ref?.current as HTMLFormElement);
-    if (token) formData.append('g-recaptcha-response', token);
+    const payload = Object.fromEntries(formData.entries());
+    if (token) payload.recaptcha = token;
 
     try {
-      const response = await fetch('https://formsubmit.co/ajax/info@raytoprolog.com', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json',
         },
-        body: JSON.stringify(Object.fromEntries(formData.entries())),
+        body: JSON.stringify(payload),
       });
-      const result = await response.json() as { success?: boolean | string };
+      const result = await response.json() as { success?: boolean; error?: string };
 
-      if (response.ok && result.success !== false && result.success !== 'false') {
+      if (response.ok && result.success) {
         setSent(true);
         form.ref?.current?.reset();
       } else {
-        setCaptchaError('Failed to send message. Please try again.');
+        setCaptchaError(result.error || 'Failed to send message. Please try again.');
       }
     } catch {
       setCaptchaError('Failed to send message. Please try again.');
