@@ -70,18 +70,20 @@ export function Contact() {
     }
 
     const formData = new FormData(form.ref?.current as HTMLFormElement);
-    if (token) formData.append('recaptcha', token);
+    if (token) formData.append('g-recaptcha-response', token);
 
     try {
-      const response = await fetch('https://formsubmit.co/info@raytoprolog.com', {
+      const response = await fetch('https://formsubmit.co/ajax/info@raytoprolog.com', {
         method: 'POST',
-        body: formData,
         headers: {
+          'Content-Type': 'application/json',
           Accept: 'application/json',
         },
+        body: JSON.stringify(Object.fromEntries(formData.entries())),
       });
+      const result = await response.json() as { success?: boolean | string };
 
-      if (response.ok) {
+      if (response.ok && result.success !== false && result.success !== 'false') {
         setSent(true);
         form.ref?.current?.reset();
       } else {
@@ -195,21 +197,24 @@ export function Contact() {
           <div className="grid gap-5 sm:grid-cols-2">
             <label className="text-xs font-bold uppercase tracking-[0.08em] text-slate-700">
               Your name
-              <input required className="mt-2 w-full rounded-[10px] border border-slate-200 bg-white px-4 py-3 text-sm font-normal text-slate-900 outline-none ring-0 transition focus:border-[#0f4aad]" placeholder="Enter your name" />
+              <input required name="name" className="mt-2 w-full rounded-[10px] border border-slate-200 bg-white px-4 py-3 text-sm font-normal text-slate-900 outline-none ring-0 transition focus:border-[#0f4aad]" placeholder="Enter your name" />
             </label>
             <label className="text-xs font-bold uppercase tracking-[0.08em] text-slate-700">
               Email address
-              <input required type="email" className="mt-2 w-full rounded-[10px] border border-slate-200 bg-white px-4 py-3 text-sm font-normal text-slate-900 outline-none ring-0 transition focus:border-[#0f4aad]" placeholder="you@company.com" />
+              <input required type="email" name="email" className="mt-2 w-full rounded-[10px] border border-slate-200 bg-white px-4 py-3 text-sm font-normal text-slate-900 outline-none ring-0 transition focus:border-[#0f4aad]" placeholder="you@company.com" />
             </label>
           </div>
           <label className="mt-5 block text-xs font-bold uppercase tracking-[0.08em] text-slate-700">
             Company
-            <input className="mt-2 w-full rounded-[10px] border border-slate-200 bg-white px-4 py-3 text-sm font-normal text-slate-900 outline-none ring-0 transition focus:border-[#0f4aad]" placeholder="Your company name" />
+            <input name="company" className="mt-2 w-full rounded-[10px] border border-slate-200 bg-white px-4 py-3 text-sm font-normal text-slate-900 outline-none ring-0 transition focus:border-[#0f4aad]" placeholder="Your company name" />
           </label>
           <label className="mt-5 block text-xs font-bold uppercase tracking-[0.08em] text-slate-700">
             How can we help?
-            <textarea required rows={5} className="mt-2 w-full resize-none rounded-[10px] border border-slate-200 bg-white px-4 py-3 text-sm font-normal text-slate-900 outline-none ring-0 transition focus:border-[#0f4aad]" placeholder="Tell us a little about what you need" />
+            <textarea required name="message" rows={5} className="mt-2 w-full resize-none rounded-[10px] border border-slate-200 bg-white px-4 py-3 text-sm font-normal text-slate-900 outline-none ring-0 transition focus:border-[#0f4aad]" placeholder="Tell us a little about what you need" />
           </label>
+          <input type="hidden" name="_subject" value="New Rayto Prolog contact enquiry" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
           <div id="recaptcha" className="mt-5 w-full" />
           <button type="submit" className="mt-6 rounded-[10px] bg-[#e74608] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#d63f04]">
             {sent ? 'Message sent' : 'Send message'}
