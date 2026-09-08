@@ -1,15 +1,4 @@
-import { useState, useEffect } from 'react';
-declare global {
-  interface Window {
-    grecaptcha: {
-      ready: (callback: () => void) => void;
-      execute: (
-        siteKey: string,
-        options: { action: string }
-      ) => Promise<string>;
-    };
-  }
-}
+import { useState } from 'react';
 import { Mail, MapPin, MessageCircle, Phone } from 'lucide-react';
 import { CtaBanner } from '@/components/CtaBanner';
 import { Eyebrow } from '@/components/Eyebrow';
@@ -22,56 +11,18 @@ const contactNumbers = [
   { label: 'Alternative Line 2', number: '09032617555', href: 'tel:+2349032617555', primary: false },
   { label: 'WhatsApp Only', number: '09160600899', href: 'https://wa.me/2349160600899', primary: false, whatsapp: true },
 ];
-const recaptchaSiteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
-
 export function Contact() {
   const [sent, setSent] = useState(false);
-  const [captchaError, setCaptchaError] = useState<string | null>(null);
+  const [submissionError, setSubmissionError] = useState<string | null>(null);
   const info = useReveal<HTMLDivElement>();
   const form = useReveal<HTMLFormElement>();
 
-  useEffect(() => {
-    if (!recaptchaSiteKey || document.querySelector('script[data-recaptcha]')) return;
-
-    const script = document.createElement('script');
-    script.async = true;
-    script.defer = true;
-    script.dataset.recaptcha = 'true';
-    script.src = `https://www.google.com/recaptcha/api.js?render=${encodeURIComponent(recaptchaSiteKey)}`;
-    document.head.appendChild(script);
-    return () => {
-      script.remove();
-    };
-  }, []);
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setCaptchaError(null);
-
-    let token = '';
-    if (recaptchaSiteKey) {
-      if (!window.grecaptcha) {
-        setCaptchaError('Security verification is still loading. Please try again.');
-        return;
-      }
-
-      try {
-        token = await new Promise<string>((resolve, reject) => {
-          window.grecaptcha.ready(() => {
-            window.grecaptcha.execute(recaptchaSiteKey, { action: 'contact_form' })
-              .then(resolve)
-              .catch(reject);
-          });
-        });
-      } catch {
-        setCaptchaError('Security verification failed. Please try again.');
-        return;
-      }
-    }
+    setSubmissionError(null);
 
     const formData = new FormData(form.ref?.current as HTMLFormElement);
     const payload = Object.fromEntries(formData.entries());
-    if (token) payload.recaptcha = token;
 
     try {
       const response = await fetch('/api/contact', {
@@ -88,10 +39,10 @@ export function Contact() {
         setSent(true);
         form.ref?.current?.reset();
       } else {
-        setCaptchaError(result.error || 'Failed to send message. Please try again.');
+        setSubmissionError(result.error || 'Failed to send message. Please try again.');
       }
     } catch {
-      setCaptchaError('Failed to send message. Please try again.');
+      setSubmissionError('Failed to send message. Please try again.');
     }
   };
 
@@ -213,15 +164,11 @@ export function Contact() {
             How can we help?
             <textarea required name="message" rows={5} className="mt-2 w-full resize-none rounded-[10px] border border-slate-200 bg-white px-4 py-3 text-sm font-normal text-slate-900 outline-none ring-0 transition focus:border-[#0f4aad]" placeholder="Tell us a little about what you need" />
           </label>
-          <input type="hidden" name="_subject" value="New Rayto Prolog contact enquiry" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_captcha" value="false" />
-          <div id="recaptcha" className="mt-5 w-full" />
           <button type="submit" className="mt-6 rounded-[10px] bg-[#e74608] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#d63f04]">
             {sent ? 'Message sent' : 'Send message'}
           </button>
           {sent && <p className="mt-3 text-sm font-medium text-green-700">Thanks — our team will be in touch shortly.</p>}
-          {captchaError && <p className="mt-2 text-sm text-red-600">Please complete the ReCaptcha verification.</p>}
+          {submissionError && <p className="mt-2 text-sm text-red-600">{submissionError}</p>}
         </form>
 
       </section>
