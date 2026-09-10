@@ -29,7 +29,7 @@ export function Header({ page, onNavigate }: { page: Page; onNavigate: (page: Pa
 
         <button
           onClick={() => onNavigate('contact')}
-          className="hidden h-[46px] rounded-[12px] bg-[#e74608] px-5 text-sm font-extrabold text-white shadow-sm transition hover:bg-[#d63f04] md:inline-flex md:items-center md:justify-center"
+          className="hidden min-h-12 rounded-[12px] bg-[#e74608] px-6 py-3 text-sm font-extrabold text-white shadow-sm transition hover:bg-[#d63f04] md:inline-flex md:items-center md:justify-center"
         >
           Request
           <span className="ml-1.5">Quote</span>

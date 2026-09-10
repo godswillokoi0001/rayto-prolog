@@ -79,7 +79,7 @@ export function Contact() {
             Every successful partnership starts with a conversation. Whether you&apos;re looking for reliable transportation,
             warehousing, fleet management, or a complete logistics solution, our team is ready to understand your needs.
           </p>
-          <a href="#contact-form" className="mt-8 inline-flex rounded-[10px] bg-[#0f4aad] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#0b3f93]">
+          <a href="#contact-form" className="mt-8 inline-flex min-h-11 items-center justify-center rounded-[10px] bg-[#0f4aad] px-6 py-3.5 text-sm font-bold text-white transition hover:bg-[#0b3f93]">
             Request a Quote
           </a>
         </div>
@@ -164,7 +164,7 @@ export function Contact() {
             How can we help?
             <textarea required name="message" rows={5} className="mt-2 w-full resize-none rounded-[10px] border border-slate-200 bg-white px-4 py-3 text-sm font-normal text-slate-900 outline-none ring-0 transition focus:border-[#0f4aad]" placeholder="Tell us a little about what you need" />
           </label>
-          <button type="submit" className="mt-6 rounded-[10px] bg-[#e74608] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#d63f04]">
+          <button type="submit" className="mt-6 min-h-11 rounded-[10px] bg-[#e74608] px-6 py-3.5 text-sm font-bold text-white transition hover:bg-[#d63f04]">
             {sent ? 'Message sent' : 'Send message'}
           </button>
           {sent && <p className="mt-3 text-sm font-medium text-green-700">Thanks — our team will be in touch shortly.</p>}
