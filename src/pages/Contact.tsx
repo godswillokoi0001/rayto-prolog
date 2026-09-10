@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Mail, MapPin, MessageCircle, Phone } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { CheckCircle2, Mail, MapPin, MessageCircle, Phone, X } from 'lucide-react';
 import { CtaBanner } from '@/components/CtaBanner';
 import { Eyebrow } from '@/components/Eyebrow';
 import { useReveal } from '@/shared/useReveal';
@@ -13,19 +13,37 @@ const contactNumbers = [
 ];
 export function Contact() {
   const [sent, setSent] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submissionError, setSubmissionError] = useState<string | null>(null);
   const info = useReveal<HTMLDivElement>();
   const form = useReveal<HTMLFormElement>();
 
+  useEffect(() => {
+    if (!sent) return;
+
+    const timeout = window.setTimeout(() => setSent(false), 6000);
+    return () => window.clearTimeout(timeout);
+  }, [sent]);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmissionError(null);
+    setIsSubmitting(true);
 
     const formData = new FormData(form.ref?.current as HTMLFormElement);
-    const payload = Object.fromEntries(formData.entries());
+    const payload: Record<string, string> = {
+      'Full Name': String(formData.get('name') || ''),
+      'Email Address': String(formData.get('email') || ''),
+      Company: String(formData.get('company') || 'Not provided'),
+      Message: String(formData.get('message') || ''),
+    };
+    payload._replyto = payload['Email Address'];
+    payload._subject = 'New Rayto Prolog contact enquiry';
+    payload._template = 'table';
+    payload._captcha = 'false';
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch('https://formsubmit.co/ajax/info@raytoprolog.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -33,16 +51,18 @@ export function Contact() {
         },
         body: JSON.stringify(payload),
       });
-      const result = await response.json() as { success?: boolean; error?: string };
+      const result = await response.json() as { success?: boolean | string; message?: string };
 
-      if (response.ok && result.success) {
+      if (response.ok && result.success !== false) {
         setSent(true);
         form.ref?.current?.reset();
       } else {
-        setSubmissionError(result.error || 'Failed to send message. Please try again.');
+        setSubmissionError(result.message || 'Failed to send message. Please try again.');
       }
     } catch {
       setSubmissionError('Failed to send message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -164,14 +184,26 @@ export function Contact() {
             How can we help?
             <textarea required name="message" rows={5} className="mt-2 w-full resize-none rounded-[10px] border border-slate-200 bg-white px-4 py-3 text-sm font-normal text-slate-900 outline-none ring-0 transition focus:border-[#0f4aad]" placeholder="Tell us a little about what you need" />
           </label>
-          <button type="submit" className="mt-6 min-h-11 rounded-[10px] bg-[#e74608] px-6 py-3.5 text-sm font-bold text-white transition hover:bg-[#d63f04]">
-            {sent ? 'Message sent' : 'Send message'}
+          <button type="submit" disabled={isSubmitting} className="mt-6 min-h-11 rounded-[10px] bg-[#e74608] px-6 py-3.5 text-sm font-bold text-white transition hover:bg-[#d63f04] disabled:cursor-wait disabled:opacity-70">
+            {isSubmitting ? 'Sending...' : 'Send message'}
           </button>
-          {sent && <p className="mt-3 text-sm font-medium text-green-700">Thanks — our team will be in touch shortly.</p>}
           {submissionError && <p className="mt-2 text-sm text-red-600">{submissionError}</p>}
         </form>
 
       </section>
+
+      {sent && (
+        <div className="fixed inset-x-4 top-5 z-[60] mx-auto flex max-w-md items-start gap-3 rounded-[14px] border border-emerald-200 bg-white p-4 text-slate-900 shadow-[0_18px_45px_rgba(15,28,48,0.18)] animate-fade-in-up sm:left-auto sm:right-6 sm:inset-x-auto sm:top-6">
+          <CheckCircle2 className="mt-0.5 shrink-0 text-emerald-600" size={22} aria-hidden="true" />
+          <div className="min-w-0 flex-1">
+            <p className="font-bold">Message sent successfully</p>
+            <p className="mt-1 text-sm leading-5 text-slate-600">Thanks for reaching out. Our team will get back to you shortly.</p>
+          </div>
+          <button type="button" onClick={() => setSent(false)} className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-slate-500 transition hover:bg-slate-100 hover:text-slate-900" aria-label="Dismiss success message">
+            <X size={18} aria-hidden="true" />
+          </button>
+        </div>
+      )}
 
       <CtaBanner onNavigate={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
     </>
