@@ -19,6 +19,12 @@ const companyValues = [
 
 const leadership = [
   {
+    name: 'Babatunde Fatai',
+    role: 'Managing Director',
+    location: '',
+    image: '/images/team/image.jpg',
+  },
+  {
     name: 'Fatimat Ismail Ajibola',
     role: 'Director of Finance',
     location: '',
