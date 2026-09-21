@@ -125,8 +125,6 @@ export function About({ onNavigate }: { onNavigate: (page: Page) => void }) {
         </div>
       </section>
 
-      <Partners />
-
       <section className="bg-[#f3f4f6] py-18 md:py-20">
         <div className="container-shell grid gap-10 lg:grid-cols-[1fr_1.05fr] lg:items-center">
           <div className="h-[330px] w-full overflow-hidden rounded-[22px] shadow-[0_22px_50px_rgba(15,28,48,0.10)] sm:h-[380px] lg:h-[440px]">
@@ -307,6 +305,8 @@ export function About({ onNavigate }: { onNavigate: (page: Page) => void }) {
           </div>
         </div>
       </section>
+
+      <Partners />
 
       <section className="bg-white py-20">
         <div className="container-shell">
