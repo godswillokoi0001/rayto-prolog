@@ -123,9 +123,9 @@ img { display: block; max-width: 100%; }
   .partners-group {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.25rem;
     flex-shrink: 0;
-    padding-right: 1rem;
+    padding-right: 1.25rem;
   }
 
   .animate-fade-in-up { animation: fade-in-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both; }

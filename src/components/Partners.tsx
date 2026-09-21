@@ -1,5 +1,3 @@
-import { Eyebrow } from "./Eyebrow";
-
 export type Partner = {
   name: string;
   logo?: string;
@@ -33,7 +31,7 @@ export function Partners() {
       <div className="container-shell">
         <div className="mx-auto max-w-[1200px]">
           <div className="mb-8 text-center">
-            <Eyebrow>Trusted partnerships</Eyebrow>
+            {/* <Eyebrow>Trusted partnerships</Eyebrow> */}
             <h2 className="section-title mx-auto max-w-[700px]">
               Some of Our Partners
             </h2>
@@ -51,25 +49,21 @@ export function Partners() {
                       <img
                         src={partner.logo}
                         alt={`${partner.name} logo`}
-                        className={`h-full w-full object-contain ${logoClassName}`}
+                        className={`h-auto max-h-[58px] w-auto max-w-[120px] object-contain sm:max-h-[72px] sm:max-w-[155px] ${logoClassName}`}
                         loading="lazy"
                       />
                     ) : (
-                      <div className="flex h-full w-full items-center justify-center rounded-[12px] border border-slate-200 bg-white px-3 py-2 text-center shadow-[0_8px_20px_rgba(15,28,48,0.04)]">
-                        <span className="text-[0.62rem] font-extrabold tracking-[0.16em] text-[#0f4aad] sm:text-[0.7rem]">
-                          {getInitials(partner.name)}
-                        </span>
-                      </div>
+                      <span className="text-center text-[0.62rem] font-extrabold tracking-[0.16em] text-[#0f4aad] sm:text-[0.7rem]">
+                        {getInitials(partner.name)}
+                      </span>
                     );
 
-                    const card = (
+                    const item = (
                       <div
                         key={`${groupIndex}-${partner.name}-${index}`}
-                        className="flex h-[110px] w-[190px] shrink-0 items-center justify-center px-4 py-3 sm:h-[120px] sm:w-[220px]"
+                        className="flex h-[78px] w-[140px] shrink-0 items-center justify-center sm:h-[90px] sm:w-[170px]"
                       >
-                        <div className="flex h-full w-full items-center justify-center overflow-hidden px-3 py-2">
-                          {content}
-                        </div>
+                        {content}
                       </div>
                     );
 
@@ -82,13 +76,13 @@ export function Partners() {
                         className="block"
                         aria-label={`Visit ${partner.name}`}
                       >
-                        {card}
+                        {item}
                       </a>
                     ) : (
                       <div
                         key={`${groupIndex}-${partner.name}-${index}-static`}
                       >
-                        {card}
+                        {item}
                       </div>
                     );
                   })}
