@@ -8,13 +8,13 @@ export type Partner = {
 
 export const partners: Partner[] = [
   { name: "Burn Stoves Nigeria Limited", logo: "/partners/p%20(4).png" },
-  { name: "Solar Sister", logo: "/partners/p%20(1).jpg" },
-  { name: "EOV Logistics", logo: "/partners/p%20(1).png" },
-  { name: "FDA Logistics", logo: "/partners/p%20(2).jpg" },
-  { name: "Boswells Logistics", logo: "/partners/p%20(2).png" },
-  { name: "Libra Circle", logo: "/partners/p%20(3).png" },
+  { name: "Solar Sister", logo: "/partners/p%20(1).png" },
+  { name: "EOV Logistics", logo: "/partners/p%20(5).png" },
+  { name: "FDA Logistics", logo: "/partners/p%20(2).png" },
+  { name: "Boswells Logistics", logo: "/partners/p%20(6).png" },
+  { name: "Libra Circle", logo: "/partners/p%20(7).png" },
   { name: "South Field Communication", logo: "/partners/p%20(1).webp" },
-  { name: "Sun King", logo: "/partners/p%20(3).jpg" },
+  { name: "Sun King", logo: "/partners/p%20(3).png" },
 ];
 
 const getInitials = (name: string) =>
