@@ -7,7 +7,7 @@ export type Partner = {
 };
 
 export const partners: Partner[] = [
-  { name: "Burn Stoves Nigeria Limited", logo: "/partners/p%20(4).jpg" },
+  { name: "Burn Stoves Nigeria Limited", logo: "/partners/p%20(4).png" },
   { name: "Solar Sister", logo: "/partners/p%20(1).jpg" },
   { name: "EOV Logistics", logo: "/partners/p%20(1).png" },
   { name: "FDA Logistics", logo: "/partners/p%20(2).jpg" },
