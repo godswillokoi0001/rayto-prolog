@@ -56,16 +56,16 @@ export function Header({ page, onNavigate }: { page: Page; onNavigate: (page: Pa
         </button>
 
         <button
-          className="xl:hidden"
+          className="-mr-2 flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-[#292828] transition hover:bg-slate-100 xl:hidden"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
-          {open ? <X size={22} /> : <Menu size={22} />}
+          {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
       {open && (
-        <nav className="border-t border-slate-200 bg-white px-5 py-3 xl:hidden">
+        <nav className="border-t border-slate-200 bg-white px-5 py-2 xl:hidden">
           {navItems.map((item) => (
             <button
               key={item.page}
@@ -73,11 +73,20 @@ export function Header({ page, onNavigate }: { page: Page; onNavigate: (page: Pa
                 onNavigate(item.page);
                 setOpen(false);
               }}
-              className="block w-full border-b border-slate-100 py-3 text-left text-sm font-semibold text-slate-900 last:border-0"
+              className="block w-full border-b border-slate-100 py-3.5 text-left text-base font-semibold text-slate-900 last:border-0"
             >
               {item.label}
             </button>
           ))}
+          <button
+            onClick={() => {
+              onNavigate('contact');
+              setOpen(false);
+            }}
+            className="my-3 flex min-h-[52px] w-full items-center justify-center rounded-[12px] bg-[#d44300] px-6 py-3 text-base font-semibold text-white shadow-sm transition hover:bg-[#bd3b00]"
+          >
+            Request Quote
+          </button>
         </nav>
       )}
     </header>

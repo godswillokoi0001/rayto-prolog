@@ -54,7 +54,7 @@ export function Services({
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.08em] text-white">
             Our Services
           </p>
-          <h1 className="max-w-[780px] text-4xl font-bold leading-tight tracking-[-0.04em] text-white sm:text-5xl lg:text-[56px] lg:leading-[1.29]">
+          <h1 className="max-w-[780px] text-3xl font-bold leading-tight tracking-[-0.04em] text-white sm:text-5xl lg:text-[56px] lg:leading-[1.29]">
             Logistics Solutions Built Around Your Business
           </h1>
           <p className="mt-6 max-w-[780px] text-base leading-7 text-[#EDEDED] sm:text-lg sm:leading-[30px]">
@@ -69,13 +69,13 @@ export function Services({
           <div className="mt-8 flex flex-wrap justify-center gap-4 sm:gap-8">
             <button
               onClick={() => onNavigate("contact")}
-              className="inline-flex min-h-[60px] items-center justify-center rounded-[12px] bg-[#11409e] px-7 py-4 text-base font-semibold text-white shadow-sm transition hover:bg-[#0b3f93]"
+              className="inline-flex min-h-[60px] w-full items-center justify-center rounded-[12px] bg-[#11409e] px-7 py-4 text-base font-semibold text-white shadow-sm transition hover:bg-[#0b3f93] sm:w-auto"
             >
               Request Quote
             </button>
             <button
               onClick={() => onNavigate("contact")}
-              className="inline-flex min-h-[60px] items-center justify-center rounded-[12px] border-[1.5px] border-white px-7 py-4 text-base font-semibold text-white transition hover:bg-white/10"
+              className="inline-flex min-h-[60px] w-full items-center justify-center rounded-[12px] border-[1.5px] border-white px-7 py-4 text-base font-semibold text-white transition hover:bg-white/10 sm:w-auto"
             >
               Speak With Our Team
             </button>
@@ -86,7 +86,7 @@ export function Services({
       <section className="bg-white px-6 py-16 sm:px-10 lg:px-20 lg:py-20">
         <div className="mx-auto grid max-w-[1280px] items-center gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1fr)] lg:gap-14">
           <div className="max-w-[522px]">
-            <h2 className="text-4xl font-bold leading-tight tracking-[-0.04em] text-black sm:text-5xl lg:text-[52px] lg:leading-[1.38]">
+            <h2 className="text-3xl font-bold leading-tight tracking-[-0.04em] text-black sm:text-5xl lg:text-[52px] lg:leading-[1.38]">
               One Partner. Complete Logistics Solutions.
             </h2>
             <p className="mt-5 text-base leading-7 text-[#5D5D5D] sm:text-lg sm:leading-[30px]">
@@ -115,7 +115,7 @@ export function Services({
           <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[#D44300]">
             Our Services
           </p>
-          <h2 className="mt-3 max-w-[780px] text-center text-4xl font-bold leading-tight tracking-[-0.04em] text-black sm:text-5xl lg:text-[56px] lg:leading-[1.29]">
+          <h2 className="mt-3 max-w-[780px] text-center text-3xl font-bold leading-tight tracking-[-0.04em] text-black sm:text-5xl lg:text-[56px] lg:leading-[1.29]">
             Complete Logistics Solutions Under One Partner
           </h2>
 

@@ -16,7 +16,7 @@ export function Button({
       onClick={onClick}
       className={`group inline-flex shrink-0 items-center justify-center gap-1.5 font-bold tracking-[-0.01em] transition-all duration-200 ${
         large
-          ? 'min-h-[60px] rounded-[12px] px-7 py-4 text-base'
+          ? 'min-h-[60px] w-full rounded-[12px] px-7 py-4 text-base sm:w-auto'
           : 'min-h-11 rounded-[8px] px-4 py-3 text-xs sm:px-5 sm:py-3.5 sm:text-sm'
       } ${
         secondary

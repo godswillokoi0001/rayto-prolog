@@ -6,7 +6,7 @@ export function Footer({ onNavigate }: { onNavigate: (page: Page) => void }) {
     <footer className="flex flex-col items-center gap-6 bg-[#1a1a1a] px-5 py-12 text-white sm:px-6 lg:px-20 lg:py-20">
       <div className="flex w-full max-w-[1280px] flex-col gap-10 lg:flex-row lg:items-start lg:gap-12 lg:px-8 lg:py-2.5">
         <div className="flex w-full flex-col items-start gap-[59px] p-2.5 lg:w-[320px] lg:shrink-0">
-          <Logo light className="h-[51px] w-[289px] object-contain" />
+          <Logo light className="h-auto w-[200px] object-contain sm:w-[240px] lg:h-[51px] lg:w-[289px]" />
         </div>
 
         <div className="flex w-full flex-col items-start gap-4 p-2.5 lg:flex-1">

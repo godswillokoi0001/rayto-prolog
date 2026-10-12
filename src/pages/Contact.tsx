@@ -105,7 +105,7 @@ export function Contact() {
             <p className="text-sm font-semibold uppercase leading-7 tracking-[0.08em] text-white">
               Contact Us
             </p>
-            <h1 className="max-w-[804px] text-4xl font-bold leading-tight tracking-[-0.04em] text-white sm:text-5xl lg:text-[56px] lg:leading-[72px]">
+            <h1 className="max-w-[804px] text-3xl font-bold leading-tight tracking-[-0.04em] text-white sm:text-5xl lg:text-[56px] lg:leading-[72px]">
               Let&apos;s Move Your Business Forward
             </h1>
           </div>
@@ -117,10 +117,10 @@ export function Contact() {
             business. Let&apos;s discuss how Rayto Prolog can help keep your
             operations moving efficiently and your customers satisfied.
           </p>
-          <div className="py-4">
+          <div className="w-full py-4 sm:w-auto">
             <a
               href="#contact-form"
-              className="inline-flex min-h-[60px] min-w-[183px] items-center justify-center rounded-[12px] bg-[#11409E] px-7 py-4 text-base font-semibold text-white shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition hover:bg-[#0b3f93]"
+              className="inline-flex min-h-[60px] w-full min-w-[183px] items-center justify-center rounded-[12px] bg-[#11409E] px-7 py-4 text-base font-semibold text-white shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition hover:bg-[#0b3f93] sm:w-auto"
             >
               Request Quote
             </a>
@@ -242,9 +242,9 @@ export function Contact() {
               }`}
             >
               <div className="mb-7 border-b border-[#E9ECF1] pb-6">
-                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#D44300]">
+                {/* <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#D44300]">
                   Request a quote
-                </p>
+                </p> */}
                 <h3 className="mt-2 text-2xl font-bold tracking-[-0.03em] text-[#1A1A1A] sm:text-3xl">
                   How can we help?
                 </h3>
@@ -301,7 +301,7 @@ export function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="group inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[#11409E] px-6 py-3 text-sm font-semibold text-white shadow-[0_8px_18px_rgba(17,64,158,0.18)] transition hover:bg-[#0B3485] disabled:cursor-wait disabled:opacity-70"
+                  className="group inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#11409E] px-6 py-3 text-sm font-semibold text-white shadow-[0_8px_18px_rgba(17,64,158,0.18)] transition hover:bg-[#0B3485] disabled:cursor-wait disabled:opacity-70 sm:w-auto"
                 >
                   {isSubmitting ? 'Sending...' : 'Send enquiry'}
                   <Send

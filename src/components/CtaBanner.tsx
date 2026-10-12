@@ -27,7 +27,7 @@ export function CtaBanner({
       >
         <div ref={ref} className={`relative mx-auto max-w-[708px] ${visible ? 'is-visible' : ''} reveal`}>
           <Eyebrow className="text-white">{eyebrow}</Eyebrow>
-          <h2 className="mx-auto max-w-[688px] text-[clamp(2.5rem,3.9vw,3.5rem)] font-bold leading-[1.29] tracking-[-0.04em] text-white">
+          <h2 className="mx-auto max-w-[688px] text-[1.9rem] font-bold leading-[1.29] tracking-[-0.04em] text-white sm:text-[2.4rem] lg:text-[clamp(2.5rem,3.9vw,3.5rem)]">
             {title ?? (
               <>
                 Ready for a Logistics
@@ -36,20 +36,20 @@ export function CtaBanner({
               </>
             )}
           </h2>
-          <p className="mx-auto mt-6 max-w-[688px] text-lg leading-[27px] text-white">
+          <p className="mx-auto mt-6 max-w-[688px] text-base leading-7 text-white sm:text-lg sm:leading-[27px]">
             {description ??
               'Every successful delivery starts with the right logistics partner. Whether you need transportation, fleet management, warehousing, or complete supply chain support, Rayto Prolog is ready to help your business operate more efficiently and deliver with confidence.'}
           </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-6">
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-6">
             <button
               onClick={() => onNavigate('contact')}
-              className="inline-flex min-h-[60px] min-w-[171px] items-center justify-center rounded-[12px] bg-[#d44300] px-7 py-4 text-base font-semibold text-white shadow-sm transition hover:bg-[#bd3b00]"
+              className="inline-flex min-h-[60px] w-full items-center justify-center rounded-[12px] bg-[#d44300] px-7 py-4 text-base font-semibold text-white shadow-sm transition hover:bg-[#bd3b00] sm:w-auto sm:min-w-[171px]"
             >
               Request Quote
             </button>
             <button
               onClick={() => onNavigate('contact')}
-              className="inline-flex min-h-[60px] min-w-[200px] items-center justify-center rounded-[12px] border-[1.5px] border-white px-7 py-4 text-base font-semibold text-white shadow-sm transition hover:bg-white/10"
+              className="inline-flex min-h-[60px] w-full items-center justify-center rounded-[12px] border-[1.5px] border-white px-7 py-4 text-base font-semibold text-white shadow-sm transition hover:bg-white/10 sm:w-auto sm:min-w-[200px]"
             >
               Contact Our Team
             </button>

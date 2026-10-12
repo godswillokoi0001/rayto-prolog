@@ -143,7 +143,7 @@ export function Industries({ onNavigate }: { onNavigate: (page: Page) => void })
           <p className="text-sm font-semibold uppercase tracking-[0.08em] text-white">
             Industries We Serve
           </p>
-          <h1 className="text-4xl font-bold leading-tight tracking-[-0.04em] sm:text-5xl lg:text-[56px] lg:leading-[1.29]">
+          <h1 className="text-3xl font-bold leading-tight tracking-[-0.04em] sm:text-5xl lg:text-[56px] lg:leading-[1.29]">
             Logistics Solutions Designed for Every Industry
           </h1>
           <p className="max-w-[780px] text-base leading-7 text-gray-100 sm:text-lg sm:leading-[30px]">
@@ -167,10 +167,10 @@ export function Industries({ onNavigate }: { onNavigate: (page: Page) => void })
           className={`reveal mx-auto grid max-w-[1280px] items-center gap-10 lg:grid-cols-[1fr_1fr] lg:gap-14 ${expertiseReveal.visible ? "is-visible" : ""}`}
         >
           <div className="max-w-[540px]">
-            <h2 className="mb-6 text-4xl font-bold leading-tight tracking-[-0.04em] text-black sm:text-5xl lg:text-[52px] lg:leading-[1.38]">
+            <h2 className="mb-6 text-3xl font-bold leading-tight tracking-[-0.04em] text-black sm:text-5xl lg:text-[52px] lg:leading-[1.38]">
               Industry Expertise That Delivers Results
             </h2>
-            <p className="text-lg leading-[30px] text-[#5D5D5D]">
+            <p className="text-base leading-7 sm:text-lg sm:leading-[30px] text-[#5D5D5D]">
               Every industry has unique operational requirements, delivery
               schedules, compliance expectations, and customer demands. Our
               experience across multiple sectors allows us to provide logistics
@@ -213,19 +213,19 @@ export function Industries({ onNavigate }: { onNavigate: (page: Page) => void })
                     imageOnLeft ? "lg:order-2" : "lg:order-1"
                   }`}
                 >
-                  <h2 className="mb-5 text-4xl font-bold leading-tight tracking-[-0.04em] text-[#1A1A1A] sm:text-5xl lg:text-[64px] lg:leading-[1.25]">
+                  <h2 className="mb-5 text-3xl font-bold leading-tight tracking-[-0.04em] text-[#1A1A1A] sm:text-5xl lg:text-[64px] lg:leading-[1.25]">
                     {industry.title}
                   </h2>
-                  <h3 className="mb-6 text-2xl font-semibold leading-tight tracking-[-0.04em] text-black sm:text-3xl lg:text-4xl lg:leading-[1.4]">
+                  <h3 className="mb-6 text-xl font-semibold leading-tight tracking-[-0.04em] text-black sm:text-3xl lg:text-4xl lg:leading-[1.4]">
                     {industry.subtitle}
                   </h3>
-                  <p className="mb-7 text-lg leading-[30px] text-[#1A1A1A]">
+                  <p className="mb-7 text-base leading-7 sm:text-lg sm:leading-[30px] text-[#1A1A1A]">
                     {industry.description}
                   </p>
-                  <h4 className="mb-3 text-xl font-semibold text-black sm:text-2xl">
+                  <h4 className="mb-3 text-lg font-semibold text-black sm:text-2xl">
                     {industry.supportTitle}
                   </h4>
-                  <ul className="list-disc space-y-1 pl-6 text-lg leading-[30px] text-[#1A1A1A] marker:text-[#D44300]">
+                  <ul className="list-disc space-y-1 pl-6 text-base leading-7 sm:text-lg sm:leading-[30px] text-[#1A1A1A] marker:text-[#D44300]">
                     {industry.support.map((item) => (
                       <li key={item}>{item}</li>
                     ))}

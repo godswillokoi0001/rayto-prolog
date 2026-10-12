@@ -123,20 +123,20 @@ export function Home({ onNavigate }: { onNavigate: (page: Page) => void }) {
       <section className="bg-white px-5 pb-12 pt-8 md:px-10 lg:min-h-[760px] lg:px-20 lg:pb-16 lg:pt-14">
         <div className="mx-auto grid w-full max-w-[1280px] items-center gap-10 lg:grid-cols-[minmax(0,1.31fr)_minmax(0,1fr)] lg:gap-[clamp(2rem,5.55vw,5rem)]">
           <div className="max-w-[702px]">
-            <p className="eyebrow mb-0 text-sm leading-7 tracking-[0.08em] text-[#d44300]">
+            <p className="eyebrow mb-0 text-xm leading-7 tracking-[0.08em] text-[#d44300]">
               Trusted Logistics &amp; Supply Chain Partner
             </p>
-            <h1 className="mt-2 text-[clamp(2.5rem,4.45vw,4rem)] font-bold leading-[1.25] tracking-[-0.04em] text-[#1a1a1a]">
+            <h1 className="mt-2 text-[1.75rem] font-bold leading-[1.25] tracking-[-0.04em] text-[#1a1a1a] sm:text-[2.75rem] lg:text-[clamp(2.5rem,4.45vw,4rem)]">
               Logistics That Keeps
               <br />
               Your Business Moving.
             </h1>
-            <p className="mt-6 max-w-[560px] text-lg font-medium leading-[30px] text-[#1a1a1a]">
+            <p className="mt-6 max-w-[560px] text-base font-medium leading-7 text-[#1a1a1a] sm:text-lg sm:leading-[30px]">
               Dependable transportation, warehousing, fleet management, and
               supply chain solutions that help businesses across Nigeria operate
               with confidence.
             </p>
-            <div className="mt-8 flex flex-row flex-wrap items-center gap-4 lg:gap-8">
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center lg:gap-8">
               <Button large onClick={() => onNavigate("contact")}>
                 Request Quote
               </Button>
@@ -155,7 +155,7 @@ export function Home({ onNavigate }: { onNavigate: (page: Page) => void }) {
             <img
               src="/images/Three_trucks_parked_warehouse_su…_202607101545 1 (1).png"
               alt="Forklift moving goods in a warehouse"
-              className="absolute bottom-0 left-0 h-[28%] w-[34%] rounded-[24px] object-cover shadow-[0_8px_24px_rgba(0,0,0,0.1)] lg:bottom-[13%] lg:left-[20px] lg:h-[170px] lg:w-[172px] xl:bottom-auto xl:left-[-146px] xl:top-[374px]"
+              className="absolute bottom-0 left-0 hidden h-[28%] w-[34%] rounded-[24px] object-cover shadow-[0_8px_24px_rgba(0,0,0,0.1)] sm:block lg:bottom-[13%] lg:left-[20px] lg:h-[170px] lg:w-[172px] xl:bottom-auto xl:left-[-146px] xl:top-[374px]"
             />
           </div>
         </div>
@@ -187,16 +187,16 @@ export function Home({ onNavigate }: { onNavigate: (page: Page) => void }) {
             className={`reveal reveal-left ${about.visible ? "is-visible" : ""}`}
           >
             <Eyebrow>About Rayto Prolog</Eyebrow>
-            <h2 className="max-w-[620px] text-[clamp(2.25rem,3.9vw,3.5rem)] font-bold leading-[1.29] tracking-[-0.04em] text-black">
+            <h2 className="max-w-[620px] text-[1.75rem] font-bold leading-[1.29] tracking-[-0.04em] text-black sm:text-[2.25rem] lg:text-[clamp(2.25rem,3.9vw,3.5rem)]">
               Your Logistics Partner for Sustainable Business Growth
             </h2>
-            <p className="mt-6 max-w-[632px] text-lg leading-[30px] text-[#5d5d5d]">
+            <p className="mt-6 max-w-[632px] text-base leading-7 text-[#5d5d5d] sm:text-lg sm:leading-[30px]">
               Running a successful business requires more than moving goods from
               one location to another. It requires a logistics partner who
               understands deadlines, operational efficiency, customer
               expectations, and the importance of consistency.
             </p>
-            <p className="mt-4 max-w-[632px] text-lg leading-[30px] text-[#5d5d5d]">
+            <p className="mt-4 max-w-[632px] text-base leading-7 text-[#5d5d5d] sm:text-lg sm:leading-[30px]">
               Rayto Prolog Ltd was established to provide businesses with
               reliable logistics and transportation solutions that simplify
               operations and support long-term growth. Through professional
@@ -224,7 +224,7 @@ export function Home({ onNavigate }: { onNavigate: (page: Page) => void }) {
       <section className="bg-[#ededed] px-5 py-20 md:px-10 lg:min-h-[1450px] lg:px-20 lg:py-24">
         <div className="mx-auto flex w-full max-w-[1320px] flex-col items-center text-center">
           <Eyebrow>Our services</Eyebrow>
-          <h2 className="mx-auto max-w-[779px] text-[clamp(2.5rem,3.9vw,3.5rem)] font-bold leading-[1.29] tracking-[-0.04em] text-black">
+          <h2 className="mx-auto max-w-[779px] text-[1.9rem] font-bold leading-[1.29] tracking-[-0.04em] text-black sm:text-[2.4rem] lg:text-[clamp(2.5rem,3.9vw,3.5rem)]">
             Complete Logistics Solutions Under One Partner
           </h2>
           <div
@@ -271,10 +271,10 @@ export function Home({ onNavigate }: { onNavigate: (page: Page) => void }) {
             className={`reveal ${why.visible ? "is-visible" : ""}`}
           >
             <Eyebrow>Why choose rayto</Eyebrow>
-            <h2 className="max-w-[534px] text-[clamp(2.5rem,3.62vw,3.25rem)] font-bold leading-[1.38] tracking-[-0.04em] text-black">
+            <h2 className="max-w-[534px] text-[1.9rem] font-bold leading-[1.38] tracking-[-0.04em] text-black sm:text-[2.4rem] lg:text-[clamp(2.5rem,3.62vw,3.25rem)]">
               Why Businesses Choose Rayto Prolog
             </h2>
-            <p className="mt-6 max-w-[522px] text-lg leading-[30px] text-[#5d5d5d]">
+            <p className="mt-6 max-w-[522px] text-base leading-7 text-[#5d5d5d] sm:text-lg sm:leading-[30px]">
               Businesses don&apos;t simply need transportation. They need
               confidence that every shipment, every delivery, and every
               logistics operation will be handled professionally from start to
@@ -312,10 +312,10 @@ export function Home({ onNavigate }: { onNavigate: (page: Page) => void }) {
       <section className="bg-[#ededed] px-5 py-20 md:px-10 lg:min-h-[740px] lg:px-20 lg:py-24">
         <div className="mx-auto flex w-full max-w-[1280px] flex-col items-center text-center">
           <Eyebrow>How we work</Eyebrow>
-          <h2 className="mx-auto max-w-[688px] text-[clamp(2.5rem,3.9vw,3.5rem)] font-bold leading-[1.29] tracking-[-0.04em] text-black">
+          <h2 className="mx-auto max-w-[688px] text-[1.9rem] font-bold leading-[1.29] tracking-[-0.04em] text-black sm:text-[2.4rem] lg:text-[clamp(2.5rem,3.9vw,3.5rem)]">
             We Keep Logistics Simple.
           </h2>
-          <p className="mx-auto mt-4 max-w-[688px] text-lg leading-[30px] text-[#5d5d5d]">
+          <p className="mx-auto mt-4 max-w-[688px] text-base leading-7 text-[#5d5d5d] sm:text-lg sm:leading-[30px]">
             From the first conversation to final delivery, our process is
             designed to keep your operations clear, efficient, and under
             control.
@@ -347,10 +347,10 @@ export function Home({ onNavigate }: { onNavigate: (page: Page) => void }) {
         <div className="mx-auto grid w-full max-w-[1280px] gap-12 lg:grid-cols-[0.9fr_1fr] lg:gap-[clamp(2rem,5.55vw,5rem)]">
           <div>
             <Eyebrow>Industries we serve</Eyebrow>
-            <h2 className="max-w-[534px] text-[clamp(2.5rem,3.62vw,3.25rem)] font-bold leading-[1.38] tracking-[-0.04em] text-black">
+            <h2 className="max-w-[534px] text-[1.9rem] font-bold leading-[1.38] tracking-[-0.04em] text-black sm:text-[2.4rem] lg:text-[clamp(2.5rem,3.62vw,3.25rem)]">
               Supporting Businesses Across Multiple Industries
             </h2>
-            <p className="mt-6 max-w-[522px] text-lg leading-[30px] text-[#5d5d5d]">
+            <p className="mt-6 max-w-[522px] text-base leading-7 text-[#5d5d5d] sm:text-lg sm:leading-[30px]">
               Rayto Prolog proudly provides logistics solutions for businesses
               operating in diverse sectors across Nigeria.
             </p>

@@ -57,10 +57,10 @@ export function ServiceDetail({
             }`}
           />
           <div className={imageOnLeft ? "lg:order-2" : "lg:order-1"}>
-            <h1 className="text-4xl font-bold leading-tight tracking-[-0.04em] text-[#1A1A1A] sm:text-5xl lg:text-[64px] lg:leading-[1.25]">
+            <h1 className="text-3xl font-bold leading-tight tracking-[-0.04em] text-[#1A1A1A] sm:text-5xl lg:text-[64px] lg:leading-[1.25]">
               {service.title}
             </h1>
-            <h2 className="mt-4 text-2xl font-semibold leading-tight tracking-[-0.04em] text-black sm:text-3xl lg:mt-5 lg:text-[36px] lg:leading-[1.4]">
+            <h2 className="mt-4 text-xl font-semibold leading-tight tracking-[-0.04em] text-black sm:text-3xl lg:mt-5 lg:text-[36px] lg:leading-[1.4]">
               {service.subtitle}
             </h2>
             <p className="mt-5 text-base leading-7 text-[#1A1A1A] sm:text-lg sm:leading-[30px]">

@@ -105,10 +105,10 @@ export function About({ onNavigate }: { onNavigate: (page: Page) => void }) {
             className={`reveal reveal-left ${intro.visible ? "is-visible" : ""}`}
           >
             <Eyebrow>About Rayto Prolog</Eyebrow>
-            <h1 className="max-w-[660px] text-[clamp(2.5rem,4.45vw,4rem)] font-bold leading-[1.25] tracking-[-0.04em] text-[#1a1a1a]">
+            <h1 className="max-w-[660px] text-[2rem] font-bold leading-[1.25] tracking-[-0.04em] text-[#1a1a1a] sm:text-[2.75rem] lg:text-[clamp(2.5rem,4.45vw,4rem)]">
               More Than a Logistics Company. A Partner in Your Growth.
             </h1>
-            <p className="mt-6 max-w-[544px] text-lg font-medium leading-[30px] text-[#1a1a1a]">
+            <p className="mt-6 max-w-[544px] text-base font-medium leading-7 text-[#1a1a1a] sm:text-lg sm:leading-[30px]">
               Behind every successful business is a logistics partner that
               keeps operations moving, customers satisfied, and promises
               fulfilled. At Rayto Prolog Ltd, we go beyond transporting goods.
@@ -116,7 +116,7 @@ export function About({ onNavigate }: { onNavigate: (page: Page) => void }) {
               solutions that improve efficiency, reduce operational challenges,
               and support sustainable growth.
             </p>
-            <p className="mt-4 max-w-[544px] text-lg font-medium leading-[30px] text-[#1a1a1a]">
+            <p className="mt-4 max-w-[544px] text-base font-medium leading-7 text-[#1a1a1a] sm:text-lg sm:leading-[30px]">
               From transportation and fleet management to warehousing and
               supply chain support, our focus is simple: helping businesses
               move forward with confidence.
@@ -152,23 +152,23 @@ export function About({ onNavigate }: { onNavigate: (page: Page) => void }) {
             className={`reveal reveal-right ${company.visible ? "is-visible" : ""}`}
           >
             <Eyebrow>Our Story</Eyebrow>
-            <h2 className="max-w-[660px] text-[clamp(2.5rem,4.45vw,4rem)] font-bold leading-[1.25] tracking-[-0.04em] text-[#1a1a1a]">
+            <h2 className="max-w-[660px] text-[2rem] font-bold leading-[1.25] tracking-[-0.04em] text-[#1a1a1a] sm:text-[2.75rem] lg:text-[clamp(2.5rem,4.45vw,4rem)]">
               Built to Solve Real Logistics Challenges
             </h2>
-            <p className="mt-6 text-lg font-medium leading-[30px] text-[#1a1a1a]">
+            <p className="mt-6 text-base font-medium leading-7 text-[#1a1a1a] sm:text-lg sm:leading-[30px]">
               Every business depends on movement. Raw materials must arrive on
               time. Products must reach customers safely. Operations must
               continue without unnecessary delays. Yet for many businesses,
               logistics remains one of the biggest operational challenges.
             </p>
-            <p className="mt-4 text-lg font-medium leading-[30px] text-[#1a1a1a]">
+            <p className="mt-4 text-base font-medium leading-7 text-[#1a1a1a] sm:text-lg sm:leading-[30px]">
               Rayto Prolog Ltd was established to change that. We saw the need
               for a logistics company that doesn&apos;t simply transport goods
               but understands the impact logistics has on business performance.
               Logistics is a primary need in the business world, and we built a
               company to help fill that need.
             </p>
-            <p className="mt-4 text-lg font-medium leading-[30px] text-[#1a1a1a]">
+            <p className="mt-4 text-base font-medium leading-7 text-[#1a1a1a] sm:text-lg sm:leading-[30px]">
               That&apos;s why we&apos;ve built our services around reliability,
               accountability, operational excellence, and long-term
               partnerships. Our goal isn&apos;t just to deliver shipments. Our
@@ -188,7 +188,7 @@ export function About({ onNavigate }: { onNavigate: (page: Page) => void }) {
         <div className="mx-auto flex w-full max-w-[1280px] flex-col items-center">
           <div className="mb-10 max-w-[708px] text-center">
             <Eyebrow>Our Mission &amp; Vision</Eyebrow>
-            <h2 className="mx-auto max-w-[688px] text-[clamp(2.5rem,3.9vw,3.5rem)] font-bold leading-[1.29] tracking-[-0.04em] text-black">
+            <h2 className="mx-auto max-w-[688px] text-[1.9rem] font-bold leading-[1.29] tracking-[-0.04em] text-black sm:text-[2.4rem] lg:text-[clamp(2.5rem,3.9vw,3.5rem)]">
               What Drives Rayto Prolog Forward
             </h2>
           </div>
@@ -232,7 +232,7 @@ export function About({ onNavigate }: { onNavigate: (page: Page) => void }) {
         <div className="mx-auto flex w-full max-w-[1280px] flex-col items-center">
           <div className="mb-12 max-w-[708px] text-center">
             <Eyebrow>Our Core Values</Eyebrow>
-            <h2 className="mx-auto max-w-[688px] text-[clamp(2.5rem,3.9vw,3.5rem)] font-bold leading-[1.29] tracking-[-0.04em] text-black">
+            <h2 className="mx-auto max-w-[688px] text-[1.9rem] font-bold leading-[1.29] tracking-[-0.04em] text-black sm:text-[2.4rem] lg:text-[clamp(2.5rem,3.9vw,3.5rem)]">
               The Principles That Drive Everything We Do
             </h2>
           </div>
