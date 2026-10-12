@@ -123,7 +123,7 @@ export function Home({ onNavigate }: { onNavigate: (page: Page) => void }) {
       <section className="bg-white px-5 pb-12 pt-8 md:px-10 lg:min-h-[760px] lg:px-20 lg:pb-16 lg:pt-14">
         <div className="mx-auto grid w-full max-w-[1280px] items-center gap-10 lg:grid-cols-[minmax(0,1.31fr)_minmax(0,1fr)] lg:gap-[clamp(2rem,5.55vw,5rem)]">
           <div className="max-w-[702px]">
-            <p className="eyebrow mb-0 text-xm leading-7 tracking-[0.08em] text-[#d44300]">
+            <p className="eyebrow mb-0 text-sm leading-7 tracking-[0.08em] text-[#d44300]">
               Trusted Logistics &amp; Supply Chain Partner
             </p>
             <h1 className="mt-2 text-[1.75rem] font-bold leading-[1.25] tracking-[-0.04em] text-[#1a1a1a] sm:text-[2.75rem] lg:text-[clamp(2.5rem,4.45vw,4rem)]">
@@ -136,17 +136,17 @@ export function Home({ onNavigate }: { onNavigate: (page: Page) => void }) {
               supply chain solutions that help businesses across Nigeria operate
               with confidence.
             </p>
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center lg:gap-8">
-              <Button large onClick={() => onNavigate("contact")}>
+            <div className="mt-5 flex w-full max-w-[420px] flex-row items-center gap-2 sm:mt-8 sm:w-auto sm:max-w-none sm:flex-wrap sm:gap-4 lg:gap-8">
+              <Button large compactOnMobile onClick={() => onNavigate("contact")}>
                 Request Quote
               </Button>
-              <Button large secondary onClick={() => onNavigate("services")}>
+              <Button large secondary compactOnMobile onClick={() => onNavigate("services")}>
                 Explore Our Services
               </Button>
             </div>
           </div>
 
-          <div className="relative mx-auto h-[360px] w-full max-w-[520px] sm:h-[480px] lg:h-[480px] xl:h-[616px]">
+          <div className="relative mx-auto h-[280px] w-full max-w-[520px] sm:h-[480px] lg:h-[480px] xl:h-[616px]">
             <img
               src="/images/Three_trucks_parked_warehouse_su…_202607101545 1.png"
               alt="Red Rayto Prolog truck on the road"

@@ -40,16 +40,16 @@ export function CtaBanner({
             {description ??
               'Every successful delivery starts with the right logistics partner. Whether you need transportation, fleet management, warehousing, or complete supply chain support, Rayto Prolog is ready to help your business operate more efficiently and deliver with confidence.'}
           </p>
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-6">
+          <div className="mt-5 flex w-full flex-row justify-center gap-2 sm:mt-8 sm:w-auto sm:flex-wrap sm:gap-6">
             <button
               onClick={() => onNavigate('contact')}
-              className="inline-flex min-h-[60px] w-full items-center justify-center rounded-[12px] bg-[#d44300] px-7 py-4 text-base font-semibold text-white shadow-sm transition hover:bg-[#bd3b00] sm:w-auto sm:min-w-[171px]"
+              className="inline-flex min-h-[44px] min-w-0 flex-1 items-center justify-center whitespace-nowrap rounded-[12px] bg-[#d44300] px-1 py-3 text-xs font-semibold text-white shadow-sm transition hover:bg-[#bd3b00] sm:min-h-[60px] sm:flex-none sm:px-7 sm:py-4 sm:text-base"
             >
               Request Quote
             </button>
             <button
               onClick={() => onNavigate('contact')}
-              className="inline-flex min-h-[60px] w-full items-center justify-center rounded-[12px] border-[1.5px] border-white px-7 py-4 text-base font-semibold text-white shadow-sm transition hover:bg-white/10 sm:w-auto sm:min-w-[200px]"
+              className="inline-flex min-h-[44px] min-w-0 flex-1 items-center justify-center whitespace-nowrap rounded-[12px] border-[1.5px] border-white px-1 py-3 text-xs font-semibold text-white shadow-sm transition hover:bg-white/10 sm:min-h-[60px] sm:flex-none sm:px-7 sm:py-4 sm:text-base"
             >
               Contact Our Team
             </button>
