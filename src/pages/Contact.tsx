@@ -1,7 +1,13 @@
 import { useEffect, useState } from 'react';
-import { CheckCircle2, Mail, MapPin, MessageCircle, Phone, X } from 'lucide-react';
-import { CtaBanner } from '@/components/CtaBanner';
-import { Eyebrow } from '@/components/Eyebrow';
+import {
+  CheckCircle2,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Phone,
+  Send,
+  X,
+} from 'lucide-react';
 import { useReveal } from '@/shared/useReveal';
 import { useSEO } from '@/shared/useSEO';
 
@@ -122,91 +128,199 @@ export function Contact() {
         </div>
       </section>
 
-      <section id="contact-form" className="container-shell grid gap-10 py-20 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
-        <div ref={info.ref} className={`reveal reveal-left ${info.visible ? 'is-visible' : ''}`}>
-          <Eyebrow>Start a conversation</Eyebrow>
-          <h2 className="section-title max-w-[420px]">
-            Let&apos;s talk about your logistics.
-          </h2>
-          <p className="mt-6 section-body max-w-[420px]">
-            Tell us what you need and a member of our team will get back to you with the right next step.
-          </p>
+      <section className="bg-[#F4F6F9] px-5 py-16 sm:px-8 sm:py-20 lg:px-10 lg:py-24">
+        <div className="mx-auto max-w-[1200px]">
+          <div className="mb-10 max-w-[680px] sm:mb-14">
+            <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#D44300]">
+              Let&apos;s get started
+            </p>
+            <h2 className="mt-3 text-3xl font-bold leading-tight tracking-[-0.04em] text-[#1A1A1A] sm:text-4xl lg:text-[48px]">
+              Tell us what your business needs to move.
+            </h2>
+            <p className="mt-4 text-base leading-7 text-[#5D6572] sm:text-lg sm:leading-8">
+              Share a little about your logistics needs and our team will help
+              you find a practical solution, built around the way your business
+              works.
+            </p>
+          </div>
 
-          <div className="mt-8 rounded-[22px] border border-slate-200 bg-[#f8f9fb] p-4 shadow-[0_14px_32px_rgba(15,28,48,0.04)] sm:p-5">
-            <div className="flex items-center gap-3 pb-4">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#0f4aad] text-white">
-                <Phone className="h-4 w-4" strokeWidth={2.2} />
-              </span>
+          <div className="grid items-stretch gap-6 lg:grid-cols-[0.85fr_1.15fr] lg:gap-8">
+            <div
+              ref={info.ref}
+              className={`reveal reveal-left flex flex-col overflow-hidden rounded-[24px] bg-[#102B5C] p-6 text-white shadow-[0_20px_50px_rgba(16,43,92,0.16)] sm:p-8 lg:p-10 ${
+                info.visible ? 'is-visible' : ''
+              }`}
+            >
               <div>
-                <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#e74608]">Contact information</p>
-                <h3 className="mt-1 text-lg font-extrabold tracking-[-0.03em] text-slate-900">Speak with our team</h3>
+                <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-[#FF8B55]">
+                  <MessageCircle size={22} strokeWidth={1.8} />
+                </span>
+                <h3 className="mt-6 text-2xl font-bold tracking-[-0.03em] sm:text-3xl">
+                  Talk to our team
+                </h3>
+                <p className="mt-3 max-w-md text-sm leading-6 text-blue-100 sm:text-base sm:leading-7">
+                  Prefer a direct conversation? Call or message us. We&apos;re
+                  ready to learn about your delivery, fleet, or supply chain
+                  requirements.
+                </p>
+              </div>
+
+              <div className="mt-8">
+                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-blue-200">
+                  Phone &amp; WhatsApp
+                </p>
+                <div className="space-y-2">
+                  {contactNumbers.map(({ label, number, href, primary, whatsapp }) => (
+                    <a
+                      key={label}
+                      href={href}
+                      target={whatsapp ? '_blank' : undefined}
+                      rel={whatsapp ? 'noreferrer' : undefined}
+                      className={`group flex items-center justify-between gap-3 rounded-xl border px-4 py-3 transition ${
+                        primary
+                          ? 'border-white/25 bg-white/10 hover:bg-white/15'
+                          : 'border-white/10 bg-[#0C244E] hover:border-white/25 hover:bg-white/10'
+                      }`}
+                    >
+                      <span className="min-w-0">
+                        <span className="block text-[11px] font-medium uppercase tracking-[0.1em] text-blue-200">
+                          {whatsapp ? 'WhatsApp' : label}
+                        </span>
+                        <span className="mt-1 block text-sm font-semibold text-white sm:text-base">
+                          {number}
+                        </span>
+                      </span>
+                      {whatsapp ? (
+                        <MessageCircle className="h-4 w-4 shrink-0 text-[#FF8B55]" />
+                      ) : (
+                        <Phone className="h-4 w-4 shrink-0 text-[#FF8B55]" />
+                      )}
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-8 grid gap-3 border-t border-white/15 pt-6 sm:grid-cols-2">
+                <div className="flex items-start gap-3">
+                  <span className="mt-0.5 text-[#FF8B55]">
+                    <MapPin size={18} />
+                  </span>
+                  <div>
+                    <p className="text-xs font-medium uppercase tracking-[0.1em] text-blue-200">
+                      Address
+                    </p>
+                    <p className="mt-1 text-sm font-medium text-white">
+                      Abuja, Nigeria
+                    </p>
+                  </div>
+                </div>
+                <a
+                  href="mailto:info@raytoprolog.com"
+                  className="group flex items-start gap-3"
+                >
+                  <span className="mt-0.5 text-[#FF8B55]">
+                    <Mail size={18} />
+                  </span>
+                  <span className="min-w-0">
+                    <span className="block text-xs font-medium uppercase tracking-[0.1em] text-blue-200">
+                      Email
+                    </span>
+                    <span className="mt-1 block break-all text-sm font-medium text-white group-hover:text-[#FFB28B]">
+                      info@raytoprolog.com
+                    </span>
+                  </span>
+                </a>
               </div>
             </div>
 
-            <div className="space-y-3">
-              {contactNumbers.map(({ label, number, href, primary, whatsapp }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target={whatsapp ? '_blank' : undefined}
-                  rel={whatsapp ? 'noreferrer' : undefined}
-                  className={`flex items-center justify-between gap-3 rounded-[14px] border px-4 py-3 text-left transition hover:border-[#0f4aad] hover:bg-white ${primary ? 'border-[#0f4aad] bg-[#0f4aad] text-white shadow-[0_10px_24px_rgba(15,74,173,0.15)]' : 'border-slate-200 bg-white text-slate-800'}`}
-                >
-                  <div className="min-w-0">
-                    <p className={`text-[10px] font-bold uppercase tracking-[0.12em] ${primary ? 'text-white/80' : 'text-slate-500'}`}>
-                      {label}
-                    </p>
-                    <p className="mt-1 text-base font-bold tracking-[-0.03em] sm:text-lg">{number}</p>
-                  </div>
-                  {whatsapp ? (
-                    <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${primary ? 'bg-white/10 text-white' : 'bg-[#ecfdf5] text-[#0f4aad]'}`}>
-                      <MessageCircle className="h-4 w-4" strokeWidth={2.2} />
-                    </span>
-                  ) : (
-                    <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${primary ? 'bg-white/10 text-white' : 'bg-slate-100 text-slate-600'}`}>
-                      <Phone className="h-4 w-4" strokeWidth={2.2} />
-                    </span>
-                  )}
-                </a>
-              ))}
-            </div>
-          </div>
+            <form
+              id="contact-form"
+              ref={form.ref}
+              onSubmit={handleSubmit}
+              className={`rounded-[24px] border border-[#E7EAF0] bg-white p-6 shadow-[0_20px_50px_rgba(20,35,60,0.08)] transition-all duration-700 sm:p-8 lg:p-10 ${
+                form.visible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+              }`}
+            >
+              <div className="mb-7 border-b border-[#E9ECF1] pb-6">
+                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#D44300]">
+                  Request a quote
+                </p>
+                <h3 className="mt-2 text-2xl font-bold tracking-[-0.03em] text-[#1A1A1A] sm:text-3xl">
+                  How can we help?
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-[#687180]">
+                  Complete the form and we&apos;ll be in touch to discuss your
+                  requirements.
+                </p>
+              </div>
 
-          <div className="mt-8 space-y-5 text-sm text-slate-700">
-            <p className="flex items-center gap-3"><MapPin className="text-[#e74608]" size={18} /> Abuja, Nigeria</p>
-            <p className="flex items-center gap-3"><Mail className="text-[#e74608]" size={18} /> info@raytoprolog.com</p>
+              <div className="grid gap-5 sm:grid-cols-2">
+                <label className="text-sm font-semibold text-[#303846]">
+                  Your name <span className="text-[#D44300]">*</span>
+                  <input
+                    required
+                    name="name"
+                    autoComplete="name"
+                    className="mt-2.5 min-h-12 w-full rounded-xl border border-[#DCE1E9] bg-[#FAFBFC] px-4 py-3 text-sm font-normal text-[#1A1A1A] outline-none transition placeholder:text-[#9AA3B1] hover:border-[#AEB9C9] focus:border-[#11409E] focus:bg-white focus:ring-4 focus:ring-[#11409E]/10"
+                    placeholder="Enter your name"
+                  />
+                </label>
+                <label className="text-sm font-semibold text-[#303846]">
+                  Email address <span className="text-[#D44300]">*</span>
+                  <input
+                    required
+                    type="email"
+                    name="email"
+                    autoComplete="email"
+                    className="mt-2.5 min-h-12 w-full rounded-xl border border-[#DCE1E9] bg-[#FAFBFC] px-4 py-3 text-sm font-normal text-[#1A1A1A] outline-none transition placeholder:text-[#9AA3B1] hover:border-[#AEB9C9] focus:border-[#11409E] focus:bg-white focus:ring-4 focus:ring-[#11409E]/10"
+                    placeholder="you@company.com"
+                  />
+                </label>
+              </div>
+              <label className="mt-5 block text-sm font-semibold text-[#303846]">
+                Company
+                <input
+                  name="company"
+                  autoComplete="organization"
+                  className="mt-2.5 min-h-12 w-full rounded-xl border border-[#DCE1E9] bg-[#FAFBFC] px-4 py-3 text-sm font-normal text-[#1A1A1A] outline-none transition placeholder:text-[#9AA3B1] hover:border-[#AEB9C9] focus:border-[#11409E] focus:bg-white focus:ring-4 focus:ring-[#11409E]/10"
+                  placeholder="Your company name"
+                />
+              </label>
+              <label className="mt-5 block text-sm font-semibold text-[#303846]">
+                Tell us about your logistics needs{' '}
+                <span className="text-[#D44300]">*</span>
+                <textarea
+                  required
+                  name="message"
+                  rows={5}
+                  className="mt-2.5 w-full resize-y rounded-xl border border-[#DCE1E9] bg-[#FAFBFC] px-4 py-3 text-sm font-normal leading-6 text-[#1A1A1A] outline-none transition placeholder:text-[#9AA3B1] hover:border-[#AEB9C9] focus:border-[#11409E] focus:bg-white focus:ring-4 focus:ring-[#11409E]/10"
+                  placeholder="What do you need help moving, storing, or managing?"
+                />
+              </label>
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="group inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[#11409E] px-6 py-3 text-sm font-semibold text-white shadow-[0_8px_18px_rgba(17,64,158,0.18)] transition hover:bg-[#0B3485] disabled:cursor-wait disabled:opacity-70"
+                >
+                  {isSubmitting ? 'Sending...' : 'Send enquiry'}
+                  <Send
+                    size={15}
+                    className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  />
+                </button>
+                <p className="text-xs leading-5 text-[#737D8C]">
+                  <span className="text-[#D44300]">*</span> Required fields
+                </p>
+              </div>
+              {submissionError && (
+                <p role="alert" className="mt-4 rounded-lg bg-red-50 px-4 py-3 text-sm text-red-700">
+                  {submissionError}
+                </p>
+              )}
+            </form>
           </div>
         </div>
-
-        <form
-          ref={form.ref}
-          onSubmit={handleSubmit}
-          className={`rounded-[20px] bg-[#f3f4f6] p-6 transition-all duration-700 sm:p-8 ${form.visible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
-        >
-          <div className="grid gap-5 sm:grid-cols-2">
-            <label className="text-xs font-bold uppercase tracking-[0.08em] text-slate-700">
-              Your name
-              <input required name="name" className="mt-2 w-full rounded-[10px] border border-slate-200 bg-white px-4 py-3 text-sm font-normal text-slate-900 outline-none ring-0 transition focus:border-[#0f4aad]" placeholder="Enter your name" />
-            </label>
-            <label className="text-xs font-bold uppercase tracking-[0.08em] text-slate-700">
-              Email address
-              <input required type="email" name="email" className="mt-2 w-full rounded-[10px] border border-slate-200 bg-white px-4 py-3 text-sm font-normal text-slate-900 outline-none ring-0 transition focus:border-[#0f4aad]" placeholder="you@company.com" />
-            </label>
-          </div>
-          <label className="mt-5 block text-xs font-bold uppercase tracking-[0.08em] text-slate-700">
-            Company
-            <input name="company" className="mt-2 w-full rounded-[10px] border border-slate-200 bg-white px-4 py-3 text-sm font-normal text-slate-900 outline-none ring-0 transition focus:border-[#0f4aad]" placeholder="Your company name" />
-          </label>
-          <label className="mt-5 block text-xs font-bold uppercase tracking-[0.08em] text-slate-700">
-            How can we help?
-            <textarea required name="message" rows={5} className="mt-2 w-full resize-none rounded-[10px] border border-slate-200 bg-white px-4 py-3 text-sm font-normal text-slate-900 outline-none ring-0 transition focus:border-[#0f4aad]" placeholder="Tell us a little about what you need" />
-          </label>
-          <button type="submit" disabled={isSubmitting} className="mt-6 min-h-11 rounded-[10px] bg-[#e74608] px-6 py-3.5 text-sm font-bold text-white transition hover:bg-[#d63f04] disabled:cursor-wait disabled:opacity-70">
-            {isSubmitting ? 'Sending...' : 'Send message'}
-          </button>
-          {submissionError && <p className="mt-2 text-sm text-red-600">{submissionError}</p>}
-        </form>
-
       </section>
 
       {sent && (
@@ -221,8 +335,6 @@ export function Contact() {
           </button>
         </div>
       )}
-
-      <CtaBanner onNavigate={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
     </>
   );
 }
