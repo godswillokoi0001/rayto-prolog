@@ -43,13 +43,13 @@ export function CtaBanner({
           <div className="mt-5 flex w-full flex-row justify-center gap-2 sm:mt-8 sm:w-auto sm:flex-wrap sm:gap-6">
             <button
               onClick={() => onNavigate('contact')}
-              className="inline-flex min-h-[44px] min-w-0 flex-1 items-center justify-center whitespace-nowrap rounded-[12px] bg-[#d44300] px-1 py-3 text-xs font-semibold text-white shadow-sm transition hover:bg-[#bd3b00] sm:min-h-[60px] sm:flex-none sm:px-7 sm:py-4 sm:text-base"
+              className="inline-flex min-h-[44px] min-w-0 flex-1 items-center justify-center whitespace-nowrap rounded-[12px] bg-[#d44300] px-1 py-4 text-xs font-semibold text-white shadow-sm transition hover:bg-[#bd3b00] sm:min-h-[60px] sm:flex-none sm:px-7 sm:py-4 sm:text-base"
             >
               Request Quote
             </button>
             <button
               onClick={() => onNavigate('contact')}
-              className="inline-flex min-h-[44px] min-w-0 flex-1 items-center justify-center whitespace-nowrap rounded-[12px] border-[1.5px] border-white px-1 py-3 text-xs font-semibold text-white shadow-sm transition hover:bg-white/10 sm:min-h-[60px] sm:flex-none sm:px-7 sm:py-4 sm:text-base"
+              className="inline-flex min-h-[44px] min-w-0 flex-1 items-center justify-center whitespace-nowrap rounded-[12px] border-[1.5px] border-white px-1 py-4 text-xs font-semibold text-white shadow-sm transition hover:bg-white/10 sm:min-h-[60px] sm:flex-none sm:px-7 sm:py-4 sm:text-base"
             >
               Contact Our Team
             </button>
