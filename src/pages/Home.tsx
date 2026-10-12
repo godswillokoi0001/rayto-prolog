@@ -312,15 +312,15 @@ export function Home({ onNavigate }: { onNavigate: (page: Page) => void }) {
           </p>
           <div
             ref={how.ref}
-            className="relative mx-auto mt-12 grid w-full gap-8 text-left sm:grid-cols-2 lg:grid-cols-4 lg:gap-8"
+            className="relative mx-auto mt-12 grid w-full gap-8 text-center sm:grid-cols-2 lg:grid-cols-4 lg:gap-8"
           >
             {steps.map((item, i) => (
               <div
                 key={item}
-                className={`relative transition-all duration-700 after:absolute after:left-6 after:top-6 after:hidden after:h-0 after:w-[calc(100%+2rem)] after:border-t-2 after:border-[#09255c]/40 lg:after:block last:lg:after:hidden ${how.visible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
+                className={`relative transition-all duration-700 after:absolute after:left-1/2 after:top-6 after:hidden after:h-0 after:w-[calc(100%+2rem)] after:border-t-2 after:border-[#09255c]/40 lg:after:block last:lg:after:hidden ${how.visible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
                 style={{ transitionDelay: `${i * 120}ms` }}
               >
-                <span className="relative z-10 mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-[#11409e] text-xl font-semibold text-white">
+                <span className="relative z-10 mx-auto mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-[#11409e] text-xl font-semibold text-white">
                   0{i + 1}
                 </span>
                 <h3 className="text-xl font-semibold leading-8 text-black">{item}</h3>
@@ -334,26 +334,26 @@ export function Home({ onNavigate }: { onNavigate: (page: Page) => void }) {
       </section>
 
       <section className="bg-white px-5 py-16 md:px-10 lg:min-h-[1378px] lg:px-20 lg:py-20">
-        <div className="mx-auto grid w-full max-w-[1280px] gap-12 lg:grid-cols-[0.9fr_1fr] lg:gap-[clamp(2rem,5.55vw,5rem)]">
-          <div>
+        <div className="mx-auto flex w-full max-w-[1280px] flex-col items-center gap-10 text-center lg:gap-12">
+          <div className="flex w-full flex-col items-center">
             <Eyebrow>Industries we serve</Eyebrow>
-            <h2 className="max-w-[534px] text-[1.9rem] font-bold leading-[1.38] tracking-[-0.04em] text-black sm:text-[2.4rem] lg:text-[clamp(2.5rem,3.62vw,3.25rem)]">
+            <h2 className="mx-auto max-w-[720px] text-[1.9rem] font-bold leading-[1.38] tracking-[-0.04em] text-black sm:text-[2.4rem] lg:text-[clamp(2.5rem,3.62vw,3.25rem)]">
               Supporting Businesses Across Multiple Industries
             </h2>
-            <p className="mt-6 max-w-[522px] text-base leading-7 text-[#5d5d5d] sm:text-lg sm:leading-[30px]">
+            <p className="mx-auto mt-5 max-w-[720px] text-base leading-7 text-[#5d5d5d] sm:text-lg sm:leading-[30px]">
               Rayto Prolog proudly provides logistics solutions for businesses
               operating in diverse sectors across Nigeria.
             </p>
           </div>
-          <div>
+          <div className="w-full">
             <div
               ref={industriesReveal.ref}
-              className="grid gap-x-8 gap-y-12 sm:grid-cols-2"
+              className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4"
             >
               {industries.map((item, i) => (
                 <div
                   key={item}
-                  className={`flex flex-col items-start transition-all duration-700 ${industriesReveal.visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}
+                  className={`flex flex-col items-center text-center transition-all duration-700 ${industriesReveal.visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}
                   style={{ transitionDelay: `${i * 80}ms` }}
                 >
                   <span className="mb-4 flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-b from-[#0051ff] to-[#000f4d] text-white">
@@ -370,7 +370,7 @@ export function Home({ onNavigate }: { onNavigate: (page: Page) => void }) {
                 </div>
               ))}
             </div>
-            <div className="mt-10">
+            <div className="mt-10 flex justify-center">
               <Button large onClick={() => onNavigate("industries")}>
                 Explore Industries
               </Button>
