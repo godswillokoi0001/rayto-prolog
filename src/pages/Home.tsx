@@ -5,6 +5,7 @@ import {
 import { Button } from "@/components/Button";
 import { CtaBanner } from "@/components/CtaBanner";
 import { Eyebrow } from "@/components/Eyebrow";
+import { Partners } from "@/components/Partners";
 import type { Page } from "@/shared/constants";
 import { useReveal } from "@/shared/useReveal";
 import { useSEO } from "@/shared/useSEO";
@@ -119,7 +120,7 @@ export function Home({ onNavigate }: { onNavigate: (page: Page) => void }) {
 
   return (
     <>
-      <section className="bg-white px-5 py-12 md:px-10 lg:min-h-[760px] lg:px-20 lg:pb-16 lg:pt-20">
+      <section className="bg-white px-5 pb-12 pt-8 md:px-10 lg:min-h-[760px] lg:px-20 lg:pb-16 lg:pt-14">
         <div className="mx-auto grid w-full max-w-[1280px] items-center gap-10 lg:grid-cols-[minmax(0,1.31fr)_minmax(0,1fr)] lg:gap-[clamp(2rem,5.55vw,5rem)]">
           <div className="max-w-[702px]">
             <p className="eyebrow mb-0 text-sm leading-7 tracking-[0.08em] text-[#d44300]">
@@ -159,6 +160,8 @@ export function Home({ onNavigate }: { onNavigate: (page: Page) => void }) {
           </div>
         </div>
       </section>
+
+      <Partners />
 
       <section className="border-y border-slate-200 bg-[#ededed] px-5 py-14 lg:min-h-[420px] lg:px-20 lg:py-20">
         <div className="mx-auto grid w-full max-w-[1280px] gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
@@ -321,11 +324,10 @@ export function Home({ onNavigate }: { onNavigate: (page: Page) => void }) {
             ref={how.ref}
             className="relative mx-auto mt-12 grid w-full gap-8 text-left sm:grid-cols-2 lg:grid-cols-4 lg:gap-8"
           >
-            <div className="absolute left-12 right-[25%] top-6 hidden h-0 border-t-2 border-[#09255c]/40 lg:block" />
             {steps.map((item, i) => (
               <div
                 key={item}
-                className={`relative transition-all duration-700 ${how.visible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
+                className={`relative transition-all duration-700 after:absolute after:left-6 after:top-6 after:hidden after:h-0 after:w-[calc(100%+2rem)] after:border-t-2 after:border-[#09255c]/40 lg:after:block last:lg:after:hidden ${how.visible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
                 style={{ transitionDelay: `${i * 120}ms` }}
               >
                 <span className="relative z-10 mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-[#11409e] text-xl font-semibold text-white">

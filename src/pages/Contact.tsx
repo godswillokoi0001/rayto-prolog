@@ -85,23 +85,40 @@ export function Contact() {
 
   return (
     <>
-      <section className="relative flex min-h-[480px] items-center justify-center overflow-hidden px-5 py-16 text-center text-white md:min-h-[520px]">
-        <div className="absolute inset-0 bg-cover bg-center opacity-80" style={{ backgroundImage: 'url(/images/Warehouse_staff_moving_goods_for…_202607191205.png)' }} />
-        <div className="absolute inset-0 bg-slate-900/55" />
-        <div className="relative mx-auto max-w-3xl">
-          <p className="eyebrow mb-4 text-[#e74608]">Contact us</p>
-          <h1 className="display-title text-white">
-            Let&apos;s Move Your
-            <br />
-            Business Forward
-          </h1>
-          <p className="mx-auto mt-7 max-w-2xl text-base leading-8 text-slate-200">
-            Every successful partnership starts with a conversation. Whether you&apos;re looking for reliable transportation,
-            warehousing, fleet management, or a complete logistics solution, our team is ready to understand your needs.
+      <section
+        className="relative flex min-h-[620px] items-center justify-center overflow-hidden bg-[#EDEDED] px-6 py-20 text-center text-white lg:min-h-[690px] lg:px-20 lg:py-24"
+        style={{
+          backgroundImage:
+            "url('/images/Forklift_carrying_goods_warehouse_2K_202607101553 1 (1).png')",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+        }}
+      >
+        <div className="mx-auto flex max-w-[1280px] flex-col items-center gap-6">
+          <div className="flex flex-col items-center gap-4 p-2.5">
+            <p className="text-sm font-semibold uppercase leading-7 tracking-[0.08em] text-white">
+              Contact Us
+            </p>
+            <h1 className="max-w-[804px] text-4xl font-bold leading-tight tracking-[-0.04em] text-white sm:text-5xl lg:text-[56px] lg:leading-[72px]">
+              Let&apos;s Move Your Business Forward
+            </h1>
+          </div>
+          <p className="max-w-[780px] text-base leading-7 text-[#EDEDED] sm:text-lg sm:leading-[30px]">
+            Every successful partnership starts with a conversation. Whether
+            you&apos;re looking for reliable transportation, warehousing, fleet
+            management, or a complete logistics solution, our team is ready to
+            understand your needs and recommend the right approach for your
+            business. Let&apos;s discuss how Rayto Prolog can help keep your
+            operations moving efficiently and your customers satisfied.
           </p>
-          <a href="#contact-form" className="mt-8 inline-flex min-h-11 items-center justify-center rounded-[10px] bg-[#0f4aad] px-6 py-3.5 text-sm font-bold text-white transition hover:bg-[#0b3f93]">
-            Request a Quote
-          </a>
+          <div className="py-4">
+            <a
+              href="#contact-form"
+              className="inline-flex min-h-[60px] min-w-[183px] items-center justify-center rounded-[12px] bg-[#11409E] px-7 py-4 text-base font-semibold text-white shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition hover:bg-[#0b3f93]"
+            >
+              Request Quote
+            </a>
+          </div>
         </div>
       </section>
 
@@ -209,4 +226,3 @@ export function Contact() {
     </>
   );
 }
-

@@ -2,7 +2,17 @@ import { Eyebrow } from './Eyebrow';
 import type { Page } from '@/shared/constants';
 import { useReveal } from '@/shared/useReveal';
 
-export function CtaBanner({ onNavigate }: { onNavigate: (page: Page) => void }) {
+export function CtaBanner({
+  onNavigate,
+  eyebrow = 'Ready to move?',
+  title,
+  description,
+}: {
+  onNavigate: (page: Page) => void;
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+}) {
   const { ref, visible } = useReveal<HTMLDivElement>();
 
   return (
@@ -16,17 +26,19 @@ export function CtaBanner({ onNavigate }: { onNavigate: (page: Page) => void }) 
         }}
       >
         <div ref={ref} className={`relative mx-auto max-w-[708px] ${visible ? 'is-visible' : ''} reveal`}>
-          <Eyebrow className="text-white">Ready to move?</Eyebrow>
+          <Eyebrow className="text-white">{eyebrow}</Eyebrow>
           <h2 className="mx-auto max-w-[688px] text-[clamp(2.5rem,3.9vw,3.5rem)] font-bold leading-[1.29] tracking-[-0.04em] text-white">
-            Ready for a Logistics
-            <br />
-            Partner You Can Trust?
+            {title ?? (
+              <>
+                Ready for a Logistics
+                <br />
+                Partner You Can Trust?
+              </>
+            )}
           </h2>
           <p className="mx-auto mt-6 max-w-[688px] text-lg leading-[27px] text-white">
-            Every successful delivery starts with the right logistics partner.
-            Whether you need transportation, fleet management, warehousing, or
-            complete supply chain support, Rayto Prolog is ready to help your
-            business operate more efficiently and deliver with confidence.
+            {description ??
+              'Every successful delivery starts with the right logistics partner. Whether you need transportation, fleet management, warehousing, or complete supply chain support, Rayto Prolog is ready to help your business operate more efficiently and deliver with confidence.'}
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-6">
             <button

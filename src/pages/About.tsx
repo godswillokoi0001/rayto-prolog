@@ -1,4 +1,4 @@
-import { ArrowRight, Check, Quote } from "lucide-react";
+import { Eye, Quote, Target } from "lucide-react";
 import { Button } from "@/components/Button";
 import { CtaBanner } from "@/components/CtaBanner";
 import { Eyebrow } from "@/components/Eyebrow";
@@ -7,14 +7,32 @@ import type { Page } from "@/shared/constants";
 import { useReveal } from "@/shared/useReveal";
 import { useSEO } from "@/shared/useSEO";
 
-const companyValues = [
-  "Reliability",
-  "Integrity",
-  "Professionalism",
-  "Safety",
-  "Efficiency",
-  "Innovation",
-  "Emotional Intelligence",
+const coreValues = [
+  {
+    title: "Reliability",
+    description:
+      "Our clients trust us because we understand that every delivery represents a commitment. We work hard to ensure every shipment is handled with care, professionalism, and consistency.",
+  },
+  {
+    title: "Integrity",
+    description:
+      "We believe strong partnerships are built on honesty, transparency, and accountability. We communicate clearly and always strive to deliver on our promises.",
+  },
+  {
+    title: "Excellence",
+    description:
+      "We continuously improve our operations, systems, and service standards to ensure our clients receive dependable logistics solutions every time.",
+  },
+  {
+    title: "Innovation",
+    description:
+      "The logistics industry is constantly evolving. We embrace better processes, modern technology, and smarter ways of serving our clients.",
+  },
+  {
+    title: "Customer Partnership",
+    description:
+      "We build lasting relationships by understanding each client's needs and working together to deliver practical logistics solutions.",
+  },
 ];
 
 const leadership = [
@@ -55,7 +73,6 @@ export function About({ onNavigate }: { onNavigate: (page: Page) => void }) {
   const company = useReveal<HTMLDivElement>();
   const chairman = useReveal<HTMLDivElement>();
   const leadershipReveal = useReveal<HTMLDivElement>();
-  const valuesReveal = useReveal<HTMLDivElement>();
 
   useSEO({
     title: "About Rayto Prolog | Logistics Partner in Nigeria",
@@ -81,56 +98,52 @@ export function About({ onNavigate }: { onNavigate: (page: Page) => void }) {
 
   return (
     <>
-      <section className="bg-white py-14 md:py-18">
-        <div className="container-shell grid gap-10 lg:grid-cols-[1.08fr_1fr] lg:items-center">
+      <section className="bg-white px-5 py-12 md:px-10 lg:min-h-[902px] lg:px-20 lg:pb-16 lg:pt-20">
+        <div className="mx-auto grid w-full max-w-[1280px] items-center gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:gap-20">
           <div
             ref={intro.ref}
             className={`reveal reveal-left ${intro.visible ? "is-visible" : ""}`}
           >
             <Eyebrow>About Rayto Prolog</Eyebrow>
-            <h1 className="display-title max-w-[560px] text-slate-900">
-              Nigerian Logistics
-              <br />
-              Built on Trust,
-              <br />
-              Speed and Reliability.
+            <h1 className="max-w-[660px] text-[clamp(2.5rem,4.45vw,4rem)] font-bold leading-[1.25] tracking-[-0.04em] text-[#1a1a1a]">
+              More Than a Logistics Company. A Partner in Your Growth.
             </h1>
-            <p className="mt-6 max-w-[560px] text-base leading-8 text-slate-600">
-              Raytoprolog connects people, products and opportunities through
-              dependable transportation and logistics solutions that keep
-              businesses moving across Nigeria.
+            <p className="mt-6 max-w-[544px] text-lg font-medium leading-[30px] text-[#1a1a1a]">
+              Behind every successful business is a logistics partner that
+              keeps operations moving, customers satisfied, and promises
+              fulfilled. At Rayto Prolog Ltd, we go beyond transporting goods.
+              We partner with businesses to provide dependable logistics
+              solutions that improve efficiency, reduce operational challenges,
+              and support sustainable growth.
             </p>
-            <p className="mt-4 max-w-[560px] text-base leading-8 text-slate-600">
-              From fleet deployment and cargo movement to last-mile delivery and
-              field operations support, we provide practical service that helps
-              our clients deliver on time and with confidence.
+            <p className="mt-4 max-w-[544px] text-lg font-medium leading-[30px] text-[#1a1a1a]">
+              From transportation and fleet management to warehousing and
+              supply chain support, our focus is simple: helping businesses
+              move forward with confidence.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button onClick={() => onNavigate("contact")}>
-                Request Quote
-              </Button>
-              <Button secondary onClick={() => onNavigate("services")}>
-                Our Services
+            <div className="mt-8">
+              <Button large onClick={() => onNavigate("contact")}>
+                Get in Touch
               </Button>
             </div>
           </div>
 
-          <div className="hidden h-[380px] w-full overflow-hidden rounded-[24px] shadow-[0_22px_50px_rgba(15,28,48,0.12)] sm:h-[430px] lg:block lg:h-[500px]">
+          <div className="h-[420px] w-full overflow-hidden rounded-[24px] shadow-[0_16px_48px_rgba(0,0,0,0.12)] sm:h-[560px] lg:h-[758px]">
             <img
               src="/images/Three_trucks_parked_warehouse_su…_202607101545 1 (2).png"
-              alt="Raytoprolog truck fleet in a warehouse compound"
-              className="h-full w-full rounded-[24px] object-cover object-center"
+              alt="Warehouse team coordinating forklift operations"
+              className="h-full w-full object-cover object-center"
             />
           </div>
         </div>
       </section>
 
-      <section className="bg-[#f3f4f6] py-18 md:py-20">
-        <div className="container-shell grid gap-10 lg:grid-cols-[1fr_1.05fr] lg:items-center">
-          <div className="h-[330px] w-full overflow-hidden rounded-[22px] shadow-[0_22px_50px_rgba(15,28,48,0.10)] sm:h-[380px] lg:h-[440px]">
+      <section className="bg-white px-5 py-16 md:px-10 lg:min-h-[972px] lg:px-20 lg:py-20">
+        <div className="mx-auto grid w-full max-w-[1280px] items-center gap-10 lg:grid-cols-[minmax(0,520px)_minmax(0,660px)] lg:gap-20">
+          <div className="h-[420px] w-full overflow-hidden rounded-[24px] shadow-[0_16px_48px_rgba(0,0,0,0.12)] sm:h-[560px] lg:h-[828px]">
             <img
-              src="/images/Forklift_carrying_goods_warehouse_2K_202607101553 1.png"
-              alt="Warehouse forklift operations and cargo handling"
+              src="/images/Three_trucks_parked_warehouse_su…_202607101545 1 (4).png"
+              alt="Freight trucks travelling along a Nigerian highway"
               className="h-full w-full object-cover object-center"
             />
           </div>
@@ -138,42 +151,127 @@ export function About({ onNavigate }: { onNavigate: (page: Page) => void }) {
             ref={company.ref}
             className={`reveal reveal-right ${company.visible ? "is-visible" : ""}`}
           >
-            <Eyebrow>Who we are</Eyebrow>
-            <h2 className="section-title max-w-[440px]">
-              Connecting Businesses to Reliable Movement
+            <Eyebrow>Our Story</Eyebrow>
+            <h2 className="max-w-[660px] text-[clamp(2.5rem,4.45vw,4rem)] font-bold leading-[1.25] tracking-[-0.04em] text-[#1a1a1a]">
+              Built to Solve Real Logistics Challenges
             </h2>
-            <p className="mt-6 section-body">
-              Raytoprolog Ltd is a Nigerian logistics and transportation company
-              committed to supporting businesses with dependable movement of
-              goods, people, and resources across the country.
+            <p className="mt-6 text-lg font-medium leading-[30px] text-[#1a1a1a]">
+              Every business depends on movement. Raw materials must arrive on
+              time. Products must reach customers safely. Operations must
+              continue without unnecessary delays. Yet for many businesses,
+              logistics remains one of the biggest operational challenges.
             </p>
-            <p className="mt-4 section-body">
-              We deliver solutions in transportation, fleet deployment,
-              last-mile delivery, cargo movement, field operations support, and
-              customised logistics strategies built around the realities of our
-              clients and partners. Our approach is designed to reduce delays,
-              strengthen supply chain performance, and help organisations
-              operate with confidence across Nigeria.
+            <p className="mt-4 text-lg font-medium leading-[30px] text-[#1a1a1a]">
+              Rayto Prolog Ltd was established to change that. We saw the need
+              for a logistics company that doesn&apos;t simply transport goods
+              but understands the impact logistics has on business performance.
+              Logistics is a primary need in the business world, and we built a
+              company to help fill that need.
             </p>
+            <p className="mt-4 text-lg font-medium leading-[30px] text-[#1a1a1a]">
+              That&apos;s why we&apos;ve built our services around reliability,
+              accountability, operational excellence, and long-term
+              partnerships. Our goal isn&apos;t just to deliver shipments. Our
+              goal is to become the logistics partner businesses can depend on
+              every single day.
+            </p>
+            <div className="mt-8">
+              <Button large onClick={() => onNavigate("contact")}>
+                Get in Touch
+              </Button>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-white py-20">
-        <div className="container-shell">
+      <section className="bg-[#ededed] px-5 py-20 md:px-10 lg:min-h-[742px] lg:px-20 lg:py-24">
+        <div className="mx-auto flex w-full max-w-[1280px] flex-col items-center">
+          <div className="mb-10 max-w-[708px] text-center">
+            <Eyebrow>Our Mission &amp; Vision</Eyebrow>
+            <h2 className="mx-auto max-w-[688px] text-[clamp(2.5rem,3.9vw,3.5rem)] font-bold leading-[1.29] tracking-[-0.04em] text-black">
+              What Drives Rayto Prolog Forward
+            </h2>
+          </div>
+          <div className="grid w-full gap-6 lg:grid-cols-2 lg:gap-8">
+            <article className="rounded-[24px] border border-[#5d5d5d] p-6 shadow-[0_8px_24px_rgba(0,0,0,0.1)] sm:p-8">
+              <span className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#11409e] text-white">
+                <Target className="h-6 w-6" strokeWidth={2} aria-hidden="true" />
+              </span>
+              <h3 className="text-xl font-semibold leading-8 text-black">
+                Our Mission
+              </h3>
+              <p className="mt-3 text-base leading-6 text-black">
+                Our mission is to provide reliable, efficient, and
+                customer-focused logistics solutions that empower businesses to
+                operate more effectively. By combining professional service,
+                thoughtful planning, and dependable execution, we help our
+                clients overcome logistics challenges and achieve greater
+                operational efficiency.
+              </p>
+            </article>
+            <article className="rounded-[24px] border border-[#5d5d5d] p-6 shadow-[0_8px_24px_rgba(0,0,0,0.1)] sm:p-8">
+              <span className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#11409e] text-white">
+                <Eye className="h-6 w-6" strokeWidth={2} aria-hidden="true" />
+              </span>
+              <h3 className="text-xl font-semibold leading-8 text-black">
+                Our Vision
+              </h3>
+              <p className="mt-3 text-base leading-6 text-black">
+                We envision a future where businesses across Nigeria and beyond
+                can rely on Rayto Prolog as their preferred logistics partner:
+                a company recognised for professionalism, innovation,
+                operational excellence, and an unwavering commitment to
+                customer success.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white px-5 py-20 md:px-10 lg:min-h-[1116px] lg:px-20 lg:py-24">
+        <div className="mx-auto flex w-full max-w-[1280px] flex-col items-center">
+          <div className="mb-12 max-w-[708px] text-center">
+            <Eyebrow>Our Core Values</Eyebrow>
+            <h2 className="mx-auto max-w-[688px] text-[clamp(2.5rem,3.9vw,3.5rem)] font-bold leading-[1.29] tracking-[-0.04em] text-black">
+              The Principles That Drive Everything We Do
+            </h2>
+          </div>
+          <div className="grid w-full max-w-[1120px] gap-6 md:grid-cols-2 xl:grid-cols-6">
+            {coreValues.map(({ title, description }, index) => (
+              <article
+                key={title}
+                className={`rounded-[16px] border border-[#d8d8d8] bg-[#ededed] p-6 xl:col-span-2 ${index > 2 ? "xl:col-span-3" : ""}`}
+              >
+                <span className="text-4xl font-semibold leading-[44px] text-[#d44300]">
+                  0{index + 1}
+                </span>
+                <h3 className="mt-3 text-xl font-semibold leading-8 text-black">
+                  {title}
+                </h3>
+                <p className="mt-3 text-base leading-6 text-black">
+                  {description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white px-5 py-16 md:px-10 lg:px-20 lg:py-20">
+        <div className="mx-auto max-w-[1280px]">
           <div
             ref={chairman.ref}
-            className={`mx-auto max-w-[1200px] rounded-[26px] border border-slate-200 bg-[#f8f9fb] p-6 shadow-[0_18px_40px_rgba(15,28,48,0.04)] sm:p-8 lg:p-10 ${chairman.visible ? "is-visible" : ""} reveal`}
+            className={`mx-auto max-w-[1200px] rounded-[24px] border border-[#d8d8d8] bg-[#ededed] p-6 sm:p-8 lg:p-10 ${chairman.visible ? "is-visible" : ""} reveal`}
           >
-            <div className="mb-8 flex items-center justify-between gap-4 border-b border-slate-200 pb-5">
+            <div className="mb-8 flex items-center justify-between gap-4 border-b border-slate-300 pb-5">
               <Eyebrow className="mb-0">Chairman’s Welcome Address</Eyebrow>
-              <span className="hidden h-10 w-10 items-center justify-center rounded-full bg-[#0f4aad] text-white sm:flex">
+              <span className="hidden h-12 w-12 items-center justify-center rounded-full bg-[#11409e] text-white sm:flex">
                 <Quote className="h-4 w-4" />
               </span>
             </div>
 
             <div className="grid gap-8 lg:grid-cols-[320px_1fr] lg:items-start">
-              <div className="overflow-hidden rounded-[20px] border border-slate-200 bg-white p-3 shadow-sm">
+              <div className="overflow-hidden rounded-[20px] bg-white p-2">
                 <div className="h-[340px] w-full overflow-hidden rounded-[16px] sm:h-[360px] lg:h-[420px]">
                   <img
                     src="/images/team/IMG-20260826-WA0008.jpg"
@@ -184,9 +282,9 @@ export function About({ onNavigate }: { onNavigate: (page: Page) => void }) {
               </div>
 
               <div>
-                <div className="space-y-5 text-sm leading-8 text-slate-700 sm:text-base">
+                <div className="space-y-5 text-base leading-7 text-[#292828] sm:text-lg sm:leading-[30px]">
                   <p>
-                    <span className="block font-extrabold text-slate-900">
+                    <span className="block font-bold text-black">
                       Welcome to Raytoprolog Ltd.
                     </span>
                   </p>
@@ -232,17 +330,17 @@ export function About({ onNavigate }: { onNavigate: (page: Page) => void }) {
                   </p>
                 </div>
 
-                <div className="mt-10 border-t border-slate-200 pt-6">
-                  <p className="text-base font-extrabold tracking-[-0.02em] text-slate-900">
+                <div className="mt-10 border-t border-slate-300 pt-6">
+                  <p className="text-lg font-bold tracking-[-0.02em] text-black">
                     Abdulfatai MUYIDEEN Akinwumi
                   </p>
-                  <p className="mt-1 text-xs font-bold uppercase tracking-[0.14em] text-[#e74608]">
+                  <p className="mt-1 text-sm font-bold uppercase tracking-[0.14em] text-[#d44300]">
                     MCILSCM
                   </p>
-                  <p className="mt-4 text-base font-semibold text-slate-700">
+                  <p className="mt-4 text-base font-semibold text-[#292828]">
                     Chairman and CEO
                   </p>
-                  <p className="text-base text-slate-700">Raytoprolog Ltd</p>
+                  <p className="text-base text-[#5d5d5d]">Raytoprolog Ltd</p>
                 </div>
               </div>
             </div>
@@ -250,13 +348,13 @@ export function About({ onNavigate }: { onNavigate: (page: Page) => void }) {
         </div>
       </section>
 
-      <section className="bg-[#f3f4f6] py-20">
-        <div className="container-shell text-center">
+      <section className="bg-[#ededed] px-5 py-20 md:px-10 lg:px-20 lg:py-24">
+        <div className="mx-auto w-full max-w-[1280px] text-center">
           <Eyebrow>Board of Trustees</Eyebrow>
 
           <div
             ref={leadershipReveal.ref}
-            className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4"
+            className="mt-12 grid gap-6 sm:grid-cols-2 xl:grid-cols-5"
           >
             {leadership.map(({ name, role, location, image }, i) => {
               const formattedName = name.includes("FICMC")
@@ -266,7 +364,7 @@ export function About({ onNavigate }: { onNavigate: (page: Page) => void }) {
               return (
                 <div
                   key={name}
-                  className={`overflow-hidden rounded-[18px] border border-slate-200 bg-white shadow-sm transition-all duration-700 ${leadershipReveal.visible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
+                  className={`overflow-hidden rounded-[16px] border border-[#d8d8d8] bg-white text-left transition-all duration-700 ${leadershipReveal.visible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
                   style={{ transitionDelay: `${i * 100}ms` }}
                 >
                   <div className="h-64 w-full overflow-hidden sm:h-72">
@@ -276,8 +374,8 @@ export function About({ onNavigate }: { onNavigate: (page: Page) => void }) {
                       className="h-full w-full object-cover object-center"
                     />
                   </div>
-                  <div className="p-5 text-left">
-                    <h3 className="text-lg font-extrabold leading-tight tracking-[-0.03em] text-slate-900">
+                  <div className="min-h-[150px] p-5">
+                    <h3 className="text-lg font-bold leading-tight tracking-[-0.03em] text-black">
                       {formattedName.includes("<span") ? (
                         <>
                           {formattedName.replace(
@@ -290,11 +388,11 @@ export function About({ onNavigate }: { onNavigate: (page: Page) => void }) {
                         name
                       )}
                     </h3>
-                    <p className="mt-3 text-sm font-semibold text-[#0f4aad]">
+                    <p className="mt-3 text-sm font-semibold text-[#11409e]">
                       {role}
                     </p>
                     {location && (
-                      <p className="mt-2 whitespace-pre-line text-sm leading-6 text-slate-600">
+                      <p className="mt-2 whitespace-pre-line text-sm leading-6 text-[#5d5d5d]">
                         {location}
                       </p>
                     )}
@@ -308,77 +406,41 @@ export function About({ onNavigate }: { onNavigate: (page: Page) => void }) {
 
       <Partners />
 
-      <section className="bg-white py-20">
-        <div className="container-shell">
-          <div
-            ref={valuesReveal.ref}
-            className={`mx-auto max-w-[900px] rounded-[22px] border border-slate-200 bg-[#f8f9fb] p-6 sm:p-8 ${valuesReveal.visible ? "is-visible" : ""} reveal`}
-          >
+      {/*
+      <section className="bg-[#ededed] px-5 py-20 md:px-10 lg:px-20 lg:py-24">
+        <div
+          ref={valuesReveal.ref}
+          className={`mx-auto grid w-full max-w-[1280px] gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-16 ${valuesReveal.visible ? "is-visible" : ""} reveal`}
+        >
+          <div>
             <Eyebrow>Our philosophy</Eyebrow>
-            <h2 className="section-title max-w-[500px]">
+            <h2 className="max-w-[520px] text-[clamp(2.25rem,3.9vw,3.5rem)] font-bold leading-[1.15] tracking-[-0.04em] text-black">
               Reliable, Professional, Human-Centred Logistics
             </h2>
-            <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {companyValues.map((value) => (
-                <div
-                  key={value}
-                  className="flex items-center gap-3 rounded-[14px] border border-slate-200 bg-white px-4 py-3 text-left"
-                >
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#0f4aad] text-white">
-                    <Check size={14} />
-                  </span>
-                  <span className="text-sm font-semibold text-slate-800">
-                    {value}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-[#0f172a] py-20 text-white">
-        <div className="container-shell">
-          <div className="mx-auto max-w-4xl rounded-[28px] border border-white/10 bg-white/5 p-8 text-center shadow-[0_18px_40px_rgba(15,28,48,0.16)] sm:p-10">
-            <div className="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-[#f7a35c]">
-              <Quote className="h-5 w-5" />
-            </div>
-            <p className="text-lg font-medium leading-8 text-white/90 sm:text-xl sm:leading-9">
-              “You may not control every situation, but you control your
-              response.
-              <br />
-              Never let anger make decisions for you. Pause and ask:
-              <br />
-              Will this bring me peace?
-              <br />
-              Will I regret it later?
-              <br />
-              Will it solve the problem?
-              <br />
-              If the answer is no, stay calm and choose silence.
-              <br />
-              Master your emotions, protect your peace, and never let a
-              temporary storm destroy a permanent blessing.
-              <br />
-              Good Morning To The Emotionally Intelligent You.”
+            <p className="mt-5 max-w-[480px] text-lg leading-[30px] text-[#5d5d5d]">
+              The way we work is guided by a simple promise: treat every
+              shipment and every partnership with care, accountability, and
+              respect.
             </p>
           </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {companyValues.map((value, index) => (
+              <div
+                key={value}
+                className={`flex min-h-[92px] items-center gap-4 rounded-[16px] border border-[#d8d8d8] bg-white p-5 ${index === companyValues.length - 1 ? "sm:col-span-2" : ""}`}
+              >
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#11409e] text-white">
+                  <Check size={18} strokeWidth={2.5} aria-hidden="true" />
+                </span>
+                <span className="text-base font-semibold text-[#292828] sm:text-lg">
+                  {value}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
-
-      <div className="container-shell py-10">
-        <div className="flex flex-col items-center justify-center gap-4 text-center sm:flex-row sm:gap-5">
-          <Button onClick={() => onNavigate("contact")}>
-            Request a Logistics Consultation
-          </Button>
-          <button
-            onClick={() => onNavigate("services")}
-            className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.12em] text-[#0f4aad] transition hover:text-[#0b3f93]"
-          >
-            Explore Our Solutions <ArrowRight size={14} />
-          </button>
-        </div>
-      </div>
+      */}
 
       <CtaBanner onNavigate={onNavigate} />
     </>

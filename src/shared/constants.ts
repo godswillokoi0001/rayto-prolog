@@ -1,4 +1,10 @@
-export type Page = 'home' | 'about' | 'services' | 'industries' | 'contact';
+export type Page =
+  | 'home'
+  | 'about'
+  | 'services'
+  | 'industries'
+  | 'contact'
+  | `services/${string}`;
 
 export const navItems: { label: string; page: Page }[] = [
   { label: 'Home', page: 'home' },

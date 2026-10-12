@@ -27,7 +27,7 @@ export function Partners() {
   const groups = [partners, partners];
 
   return (
-    <section className="bg-[#f3f4f6] px-2 py-8 sm:px-0 md:py-20">
+    <section className="bg-[#ffffff] px-2 py-8 sm:px-0 md:py-20">
       <div className="container-shell">
         <div className="mx-auto max-w-[1200px]">
           <div className="mb-8 text-center">
