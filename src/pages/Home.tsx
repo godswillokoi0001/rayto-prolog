@@ -7,6 +7,7 @@ import { CtaBanner } from "@/components/CtaBanner";
 import { Eyebrow } from "@/components/Eyebrow";
 import { Partners } from "@/components/Partners";
 import type { Page } from "@/shared/constants";
+import { services } from "@/shared/services";
 import { useReveal } from "@/shared/useReveal";
 import { useSEO } from "@/shared/useSEO";
 
@@ -27,16 +28,6 @@ const trustFeatures = [
     title: "Operational Excellence",
     copy: "Experienced teams coordinate every stage with care.",
   },
-];
-
-const services = [
-  "Reliable Delivery",
-  "Reliable Delivery",
-  "Reliable Delivery",
-  "Reliable Delivery",
-  "Reliable Delivery",
-  "Reliable Delivery",
-  "Reliable Delivery",
 ];
 
 const reasons = [
@@ -168,7 +159,7 @@ export function Home({ onNavigate }: { onNavigate: (page: Page) => void }) {
           {trustFeatures.map(({ title, copy }) => (
             <div
               key={title}
-              className="flex min-h-[224px] flex-col items-start justify-center rounded-[11px] p-6 lg:p-8"
+              className="flex min-h-[224px] flex-col items-center justify-center rounded-[11px] p-6 text-center sm:items-start sm:text-left lg:p-8"
             >
               <span className="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-b from-[#0051ff] to-[#000f4d] text-white">
                 <Truck className="h-6 w-6" strokeWidth={2.2} />
@@ -231,24 +222,23 @@ export function Home({ onNavigate }: { onNavigate: (page: Page) => void }) {
             ref={servicesReveal.ref}
             className="mt-14 flex w-full flex-wrap justify-center gap-8"
           >
-            {services.map((service, i) => (
+            {services.map(({ id, title, summary, icon: Icon }, i) => (
               <div
-                key={`${service}-${i}`}
-                className={`min-h-[335px] w-full rounded-[11px] border border-[#d8d8d8] bg-white p-6 text-left transition-all duration-700 md:w-[calc(50%-16px)] xl:w-[calc(25%-24px)] lg:p-8 ${servicesReveal.visible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
+                key={id}
+                className={`flex w-full flex-col items-center rounded-[11px] border border-[#d8d8d8] bg-white p-6 text-center transition-all duration-700 sm:items-start sm:text-left md:w-[calc(50%-16px)] xl:w-[calc(25%-24px)] lg:p-8 ${servicesReveal.visible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
                 <span className="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-b from-[#0051ff] to-[#000f4d] text-white">
-                  <Truck className="h-6 w-6" strokeWidth={2.2} />
+                  <Icon className="h-6 w-6" strokeWidth={2.2} />
                 </span>
                 <h3 className="text-xl font-semibold leading-8 text-black">
-                  {service}
+                  {title}
                 </h3>
                 <p className="mt-2 text-base leading-6 text-black">
-                  Committed to safe, timely, and dependable logistics
-                  operations.
+                  {summary}
                 </p>
                 <button
-                  onClick={() => onNavigate("services")}
+                  onClick={() => onNavigate(`services/${id}`)}
                   className="mt-5 inline-flex items-center gap-2 text-base font-medium text-[#d44300]"
                 >
                   Learn More <ArrowRight size={12} />

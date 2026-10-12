@@ -123,7 +123,7 @@ export function Services({
             {services.map(({ id, title, summary, icon: Icon }) => (
               <article
                 key={id}
-                className="flex min-h-[280px] w-full max-w-[301px] flex-col items-start rounded-[11px] border border-[#D8D8D8] bg-white p-6 sm:min-h-[300px] sm:p-8 lg:min-h-[335px]"
+                className="flex min-h-[280px] w-full max-w-[301px] flex-col items-center rounded-[11px] border border-[#D8D8D8] bg-white p-6 text-center sm:min-h-[300px] sm:items-start sm:p-8 sm:text-left lg:min-h-[335px]"
               >
                 <span className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-b from-[#0051FF] to-[#000F4D] text-white">
                   <Icon className="h-7 w-7" strokeWidth={1.8} />
